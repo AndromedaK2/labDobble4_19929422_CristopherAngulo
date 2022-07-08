@@ -1,16 +1,9 @@
-﻿///////////////////////////////////////////////////////////
-//  Card.cs
-//  Implementation of the Class Cardct
-//  Created on:      27-jun.-2022 13:32:39
-//  Original author: Cristopher Angulo
-///////////////////////////////////////////////////////////
-
-using Model.card;
+﻿using Model.card;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-
-namespace Model.Dobble
+ 
+namespace Model.dobble
 {
 
 	public class Dobble : IDobble
@@ -24,7 +17,7 @@ namespace Model.Dobble
 		/// <summary>
 		/// @description represent card list of dobblegame
 		/// </summary>
-		private List<Card> dobbleCards = new();
+		public List<Card> DobbleCards { get; set; } = new();
 
         /// <summary>
         /// @description represent order of dobble (projective plane)
@@ -35,14 +28,6 @@ namespace Model.Dobble
 
         //region getter and setters
 
-        /// <summary>
-        /// @implNote  get dobble cards </summary>
-        /// <returns> card list </returns>
-        public List<Card> DobbleCards
-        {
-            get => dobbleCards;
-            set => this.dobbleCards = (List<Card>)value;
-        }
 
         /// <summary>
         /// @implNote  get missing cards </summary>
@@ -89,20 +74,20 @@ namespace Model.Dobble
 			shuffle();
 			if (!(getMaxNumberOfCards(order) == maximumTotalCards))
 			{
-				List<Card> dobbleCards = new List<Card>();
+				List<Card> DobbleCards = new List<Card>();
 				int i = 0;
 
 				for (; i < maximumTotalCards; i++)
 				{
-					dobbleCards.Add(this.dobbleCards[i]);
+					DobbleCards.Add(this.DobbleCards[i]);
 				}
 
-				for (int j = i; j < this.dobbleCards.Count; j++)
+				for (int j = i; j < this.DobbleCards.Count; j++)
 				{
-					this.MissingCards.Add(this.dobbleCards[j]);
+					this.MissingCards.Add(this.DobbleCards[j]);
 				}
 
-				this.dobbleCards = dobbleCards;
+				this.DobbleCards = DobbleCards;
 
 			}
 		}
@@ -155,7 +140,7 @@ namespace Model.Dobble
 		/// <returns> card </returns>
 		public virtual Card getNthCard(int position)
 		{
-			return this.dobbleCards[position];
+			return this.DobbleCards[position];
 		}
 
 		/// <summary>
@@ -196,7 +181,7 @@ namespace Model.Dobble
 		{
 			for (int i = 0; i < cards.Count; i++)
 			{
-				dobbleCards.Add(getNthCard(cards, i));
+				DobbleCards.Add(getNthCard(cards, i));
 			}
 		}
 
@@ -205,7 +190,7 @@ namespace Model.Dobble
 		/// <param name="card"> represent a card of dobble cards </param>
 		public void AddCard(Card card) 
 		{
-			dobbleCards.Add(card);
+			DobbleCards.Add(card);
 		}
 
 		/// <summary>
@@ -213,7 +198,7 @@ namespace Model.Dobble
 		/// <param name="card"> represent a card of dobble cards </param>
 		public virtual void removeCard(Card card)
 		{
-			this.dobbleCards.Remove(card);
+			this.DobbleCards.Remove(card);
 		}
 
 		/// <summary>
@@ -222,9 +207,9 @@ namespace Model.Dobble
 		public override string ToString()
 		{
 			string dobbleCardsString = "Mazo de cartas: \n";
-			for (int i = 0; i < dobbleCards.Count; i++)
+			for (int i = 0; i < DobbleCards.Count; i++)
 			{
-				Card card = dobbleCards[i];
+				Card card = DobbleCards[i];
 				string cardString = card.ToString();
 				dobbleCardsString = dobbleCardsString + cardString;
 			}
@@ -341,14 +326,14 @@ namespace Model.Dobble
         /// <summary>
         /// @implNote shuffle current dobble cards
         /// </summary>
-        private void shuffle() => _ = this.dobbleCards.OrderBy(card => card.Id);
+        private void shuffle() => _ = this.DobbleCards.OrderBy(card => card.Id);
 		 
         /// <summary>
         /// @implNote  validate if all cards have different elements </summary>
         /// <returns> true if all cards have different elements or false if they have not </returns>
         private bool allCardsHaveDifferentElements()
 		{
-			return this.dobbleCards.All(card => card.Elements.Distinct().Count() == this.ElementsPerCard);
+			return this.DobbleCards.All(card => card.Elements.Distinct().Count() == this.ElementsPerCard);
 		}
 
 		/// <summary>
@@ -357,14 +342,14 @@ namespace Model.Dobble
 		private bool betweenAllCardsHaveOneElementInCommon()
 		{
 			int auxiliary = 0;
-			for (int i = 0; i < this.dobbleCards.Count(); i++)
+			for (int i = 0; i < this.DobbleCards.Count(); i++)
 			{
 				auxiliary = auxiliary + 1;
 
-				for (int j = auxiliary; j < this.dobbleCards.Count(); j++)
+				for (int j = auxiliary; j < this.DobbleCards.Count(); j++)
 				{
-					Card firstCard = this.dobbleCards[i];
-					Card nextCard = this.dobbleCards[j];
+					Card firstCard = this.DobbleCards[i];
+					Card nextCard = this.DobbleCards[j];
 					if (!(firstCard.Elements.Where(nextCard.Elements.Contains).ToList().Count() == 1))
 					{
 						return false;

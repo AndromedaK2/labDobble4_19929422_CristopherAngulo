@@ -3,7 +3,7 @@
 using Model.card;
 using System.Collections.Generic;
 
-namespace Model.Dobble
+namespace Model.dobble
 {
 	/// <summary>
 	/// @author Cristopher Angulo
@@ -13,7 +13,7 @@ namespace Model.Dobble
 	public interface IDobble
 	{
 
-		void AddCards(List<Card> cards);
+		void AddCards(List<Card> cards); 
 
 		void AddCard(Card card);
 
