@@ -36,17 +36,21 @@ namespace Model.card
 
         public Card(List<object> elements, int id)
         {
-            Elements = elements;
-            Id = id;
-        }
+			Id = Helper.generateRandomNumber(1, 1000);
+			Elements = elements;
+		}
 
-        /// <summary>
-        /// @implNote add an element in the list of element
-        /// </summary>
-        /// <param name="element">element</param>
-        public void AddElement(object element)
+		/// <summary>
+		/// @implNote add an element in the list of element
+		/// </summary>
+		/// <param name="element">element</param>
+		public void AddElement(object element)
 		{
-			Elements.Add(element);
+			if (!Elements.Contains(element))
+			{
+				Elements.Add(element);
+			}
+
 		}
 
 
@@ -64,11 +68,25 @@ namespace Model.card
 		/// @return card in a string format
 		/// </summary>
 		public override string ToString()
-		{ 
+        {
 
-			return "";
+			string caption = "id: " + Id + " Carta: [";
+			for (int j = 0; j < Elements.Count; j++)
+			{
+				object element = Elements[j];
+				if (j + 1 == Elements.Count)
+				{
+					caption = caption + element + "]";
+				}
+				else
+				{
+					caption = caption + element + "-";
+				}
+			}
+			return caption + "\n";
+
 		}
 
 
-    }
+	}
 }
