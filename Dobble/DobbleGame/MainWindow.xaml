@@ -7,10 +7,11 @@
         mc:Ignorable="d"
         Title="Dobble Game" Height="800" Width="1400">
     <Grid>
-        <Label Content="Símbolo" HorizontalAlignment="Left" Margin="142,83,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="TxtAddElement" HorizontalAlignment="Left" Margin="215,86,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <Button Content="Agregar" HorizontalAlignment="Left" Margin="353,84,0,0" VerticalAlignment="Top"/>
-        <Label Content="Cantidad de Cartas" HorizontalAlignment="Left" Margin="145,139,0,0" VerticalAlignment="Top"/>
+        <Label Content="Ingrese Símbolos" HorizontalAlignment="Left" Margin="142,83,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="TxtAddElement" HorizontalAlignment="Left" Margin="255,90,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" RenderTransformOrigin="1.042,0.169"/>
+        <Button Content="Agregar" HorizontalAlignment="Left" Margin="145,214,0,0" VerticalAlignment="Top" Height="25" Width="92"/>
+        <Label Content="Cantidad de Cartas" HorizontalAlignment="Left" Margin="140,138,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="TxtTotalCards" HorizontalAlignment="Left" Margin="255,139,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" RenderTransformOrigin="1.042,0.169"/>
 
 
 

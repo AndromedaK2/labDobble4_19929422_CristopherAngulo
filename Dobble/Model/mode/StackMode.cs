@@ -31,16 +31,16 @@ namespace Model.mode
 		public  DobbleGame StartGame(DobbleGame dobbleGame)
 		{
 			Dobble dobble = dobbleGame.Dobble;
-			Card firstCard = dobble.getNthCard(0);
-			Card secondCard = dobble.getNthCard(1);
+			Card firstCard = dobble.GetNthCard(0);
+			Card secondCard = dobble.GetNthCard(1);
 
-			IList<Card> cards = new List<Card>();
+			List<Card> cards = new();
 			cards.Add(firstCard);
 			cards.Add(secondCard);
 
-			//dobbleGame.CardsZone = cards;
-			dobble.removeCard(firstCard);
-			dobble.removeCard(secondCard);
+			dobbleGame.CardsZone = cards;
+			dobble.RemoveCard(firstCard);
+			dobble.RemoveCard(secondCard);
 
 			return dobbleGame;
 		}
@@ -109,15 +109,14 @@ namespace Model.mode
 
 		public Player GetWinner(List<Player> players)
 		{
-			//Player player = players.Max(Comparator.comparing(Player.PO)).get();
-			//return player;
-
-			return null;
+			Player player = players.OrderByDescending(player=> player.Points).First();
+			return player;
 		}
 
         public List<Card> ResetDobbleCards(List<Card> dobbleCards, List<Card> cards)
         {
-            throw new NotImplementedException();
+			dobbleCards.AddRange(cards);
+			return dobbleCards;
         }
 
 
