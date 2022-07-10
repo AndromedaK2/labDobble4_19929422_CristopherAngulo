@@ -1,38 +1,60 @@
-﻿
-using Model.card;
+﻿using Model.game;
+using Model.mode;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
-namespace DobbleGame
+namespace UI
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow()
+        public DobbleGame DobbleGame { get; set; }
+        public MainWindow() 
         {
             InitializeComponent();
-            CallCard();
         }
 
 
-        private  void CallCard() {
+        private void CreateGame(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                List<object> elements = MapElements();
+                int totalCards = Int32.Parse(TxtTotalCards.Text.Trim());
+                int playersNumber = Int32.Parse(TxtTotalPlayers.Text.Trim());
+                string gameName = TxtGameName.Text.Trim();
+                int elementsPerCard = Int32.Parse(TxtElementsPerCard.Text.Trim());
+                DobbleGameMode dobbleGameMode =  DobbleGameMode.STACKMODE;
 
-            Card c = new Card();
+                DobbleGame = new DobbleGame(elements,elementsPerCard,totalCards,dobbleGameMode,playersNumber,gameName);
+
+                MessageBox.Show(DobbleGame.ToString());
+
+
+            }
+            catch (Exception ex)
+            {
+                _ = MessageBox.Show(ex.Message);
+            }
 
         }
+
+
+        private List<object> MapElements()
+        {
+            List<object> mapElements = new();
+            string[] elements = TxtElements.Text.Split(",");
+
+            for (int i = 0; i < elements.Length; i++)    
+                mapElements.Add(elements[i]);
+            
+            return mapElements;
+        }
+
+
+
     }
 }

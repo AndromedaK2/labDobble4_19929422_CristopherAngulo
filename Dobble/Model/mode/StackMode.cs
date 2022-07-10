@@ -2,15 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Model.card;
+using Model.dobble;
+using Model.game;
+using Model.player;
 using System.Threading.Tasks;
 
 namespace Model.mode
 {
-	using Model.card;
-    using Model.dobble;
-    using Model.game;
-	using Model.player;
-	using System.Collections.Generic;
 
 	/// <summary>
 	/// @author Cristopher Angulo

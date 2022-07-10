@@ -1,19 +1,29 @@
-﻿<Window x:Class="DobbleGame.MainWindow"
+﻿<Window x:Class="UI.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:DobbleGame"
+        xmlns:local="clr-namespace:UI"
         mc:Ignorable="d"
         Title="Dobble Game" Height="800" Width="1400">
     <Grid>
-        <Label Content="Ingrese Símbolos" HorizontalAlignment="Left" Margin="142,83,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="TxtAddElement" HorizontalAlignment="Left" Margin="255,90,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" RenderTransformOrigin="1.042,0.169"/>
-        <Button Content="Agregar" HorizontalAlignment="Left" Margin="145,214,0,0" VerticalAlignment="Top" Height="25" Width="92"/>
-        <Label Content="Cantidad de Cartas" HorizontalAlignment="Left" Margin="140,138,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="TxtTotalCards" HorizontalAlignment="Left" Margin="255,139,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" RenderTransformOrigin="1.042,0.169"/>
+        <Label Content="Nombre del Juego:" HorizontalAlignment="Left" Margin="119,34,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.426,0.618"/>
+        <TextBox x:Name="TxtGameName" HorizontalAlignment="Left" Margin="270,44,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" RenderTransformOrigin="1.042,0.169"/>
+
+        <Label Content="Elementos por carta:" HorizontalAlignment="Left" Margin="117,93,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.426,0.618"/>
+        <TextBox x:Name="TxtElementsPerCard" HorizontalAlignment="Left" Margin="270,94,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" RenderTransformOrigin="1.042,0.169"/>
+
+        <Label Content="Ingrese Símbolos:" HorizontalAlignment="Left" Margin="117,148,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.426,0.618"/>
+        <TextBox x:Name="TxtElements" HorizontalAlignment="Left" Margin="270,156,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" RenderTransformOrigin="1.042,0.169"/>
+
+        <Label Content="Cantidad de Cartas:" HorizontalAlignment="Left" Margin="115,199,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="TxtTotalCards" HorizontalAlignment="Left" Margin="270,209,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" RenderTransformOrigin="1.042,0.169"/>
+        
+        <Label Content="Número de Jugadores:" HorizontalAlignment="Left" Margin="115,254,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="TxtTotalPlayers" HorizontalAlignment="Left" Margin="270,259,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" RenderTransformOrigin="1.042,0.169"/>
 
 
+        <Button Content="Crear Juego" Click="CreateGame" HorizontalAlignment="Left" Margin="120,329,0,0" VerticalAlignment="Top" Height="25" Width="92"/>
 
     </Grid>
 </Window>

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Model.game
+namespace Model.game 
 {
 	/// <summary>
 	/// @author Cristopher Angulo

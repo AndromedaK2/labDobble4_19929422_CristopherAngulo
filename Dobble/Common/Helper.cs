@@ -1,20 +1,7 @@
-﻿// Include namespace system
+﻿
 using System;
 using System.Collections.Generic;
 
-
-
-// This class are provide by kalkicode.com
-public class Settlement
-{
-    // Get random number between [0.0 to 1.0]
-    public static double MathRandom()
-    {
-        return (new Random()).NextDouble();
-    }
-}
-
-// *
 // * @author Cristopher Angulo
 // * @implNote Helper to use in all application to do generic operations
 public class Helper
@@ -24,9 +11,10 @@ public class Helper
     //     * @param min minimum integer value
     //     * @param max maximum integer value
     //     * @return a random number between inputs number
-    public static int generateRandomNumber(int min, int max)
+    public static int GenerateRandomNumber(int min, int max)
     {
-        return (int)(Settlement.MathRandom() * (max - min + 1) + min);
+        Random random = new Random();
+        return random.Next(min, max);
     }
     // *
     //     * @implNote static method to generate random elements with a database in memory defined in list of objects
@@ -69,10 +57,10 @@ public class Helper
         objects.Add("Flower");
         for (int i = 0; i < total; i++)
         {
-            var baseElement = baseElements[generateRandomNumber(0, 9)];
-            var position = positions[generateRandomNumber(0, 8)];
-            var element = objects[generateRandomNumber(0, 9)];
-            elements.Add(generateRandomNumber(1, 10).ToString() + " " + string.Join(", ", baseElement) + " " +
+            var baseElement = baseElements[GenerateRandomNumber(0, 9)];
+            var position = positions[GenerateRandomNumber(0, 8)];
+            var element = objects[GenerateRandomNumber(0, 9)];
+            elements.Add(GenerateRandomNumber(1, 10).ToString() + " " + string.Join(", ", baseElement) + " " +
                 string.Join(", ", position) + " " + string.Join(", ", element));
         }
         return elements;

@@ -56,9 +56,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Kurisu\\Documents\\GitHub\\labDobble4_19929422_CristopherAngulo\\Dobble\\DobbleGame\\DobbleGame.csproj",
-      "projectName": "DobbleGame",
-      "projectPath": "C:\\Users\\Kurisu\\Documents\\GitHub\\labDobble4_19929422_CristopherAngulo\\Dobble\\DobbleGame\\DobbleGame.csproj",
+      "projectUniqueName": "C:\\Users\\Kurisu\\Documents\\GitHub\\labDobble4_19929422_CristopherAngulo\\Dobble\\DobbleGame\\UI.csproj",
+      "projectName": "UI",
+      "projectPath": "C:\\Users\\Kurisu\\Documents\\GitHub\\labDobble4_19929422_CristopherAngulo\\Dobble\\DobbleGame\\UI.csproj",
       "packagesPath": "C:\\Users\\Kurisu\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\Kurisu\\Documents\\GitHub\\labDobble4_19929422_CristopherAngulo\\Dobble\\DobbleGame\\obj\\",
       "projectStyle": "PackageReference",

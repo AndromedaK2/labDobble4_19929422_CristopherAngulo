@@ -1,18 +1,13 @@
 ﻿using Model.card;
 using Model.dobble;
-using Model.game;
 using Model.mode;
 using Model.player;
 using Model.turn;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Model.game
-{
-	public class DobbleGame : IDobbleGame 
+{ 
+	public class DobbleGame : IDobbleGame
 	{
 
 
@@ -92,10 +87,7 @@ namespace Model.game
 		/// <summary>
 		/// Default Constructor
 		/// </summary>
-		public DobbleGame()
-		{
-
-		}
+		public DobbleGame() { }
 
 		/// <param Name="elements"> </param>
 		/// <param Name="elementsPerCard"> </param>
@@ -108,7 +100,7 @@ namespace Model.game
 
 		public DobbleGame(List<object> elements, int elementsPerCard, int maximumTotalCards, DobbleGameMode DobbleGameMode, int PlayersNumber, string Name, List<Player> Players, List<Turn> Turns)
 		{
-			this.Id = Helper.generateRandomNumber(1, 1000);
+			this.Id = Helper.GenerateRandomNumber(1, 1000);
 			this.PlayersNumber = PlayersNumber;
 			this.Dobble = new Dobble(elements, elementsPerCard, maximumTotalCards);
 			this.DobbleGameMode = DobbleGameMode;
@@ -126,7 +118,7 @@ namespace Model.game
 		/// <param Name="Name"> </param>
 		public DobbleGame(List<object> elements, int elementsPerCard, int maximumTotalCards, DobbleGameMode DobbleGameMode, int PlayersNumber, string Name)
 		{
-			this.Id = Helper.generateRandomNumber(1, 1000);
+			this.Id = Helper.GenerateRandomNumber(1, 1000);
 			this.PlayersNumber = PlayersNumber;
 			this.Dobble = new Dobble(elements, elementsPerCard, maximumTotalCards);
 			this.DobbleGameMode = DobbleGameMode;
@@ -181,14 +173,14 @@ namespace Model.game
 			switch (DobbleGameMode)
 			{
 				case DobbleGameMode.STACKMODE:
-                    this.Mode = new StackMode();
+					this.Mode = new StackMode();
 					break;
 			}
-			
+
 		}
 
 
-		public  void StartGame()
+		public void StartGame()
 		{
 			this.Mode.StartGame(this);
 		}
@@ -198,7 +190,7 @@ namespace Model.game
 		/// updates player card, reset cards zone, reset Dobble cards and continue with next turn </summary>
 		/// <seealso cref="IMode"/>
 		/// <returns> true if player fin common element between cards or false if it is the opposite </returns>
-		public bool Spotit(object element) 
+		public bool Spotit(object element)
 		{
 			bool spotit = this.Mode.Spotit(element, this.CardsZone);
 			if (spotit)
@@ -224,7 +216,7 @@ namespace Model.game
 		/// it also updates Turns and reset cards
 		/// </summary>
 		public void PassTurn()
-		{ 
+		{
 			this.ResetDobbleCards();
 			this.ResetCardsZone();
 			Turn currentTurn = WhoseIsTurn();
@@ -249,9 +241,9 @@ namespace Model.game
 		/// </summary>
 		public void ResetDobbleCards()
 		{
-		   this.Dobble.DobbleCards = this.Mode.ResetDobbleCards(this.Dobble.DobbleCards, this.CardsZone);
+			this.Dobble.DobbleCards = this.Mode.ResetDobbleCards(this.Dobble.DobbleCards, this.CardsZone);
 		}
-		 
+
 		/// <summary>
 		/// @implNote  this method reset cards zone using Mode
 		/// </summary>
@@ -264,7 +256,7 @@ namespace Model.game
 		/// @implNote  this methods get player who win the match </summary>
 		/// <returns> player string format </returns>
 
-		public string Winner ()
+		public string Winner()
 		{
 
 			Player player = this.Mode.GetWinner(this.Players);
@@ -276,13 +268,13 @@ namespace Model.game
 			{
 				return "No hay ganador";
 			}
-			
+
 		}
 
 		/// <summary>
 		/// @implNote  this method finish the game
 		/// </summary>
-		public  void EndGame() 
+		public void EndGame()
 		{
 			this.Mode.EndGame(this);
 		}
@@ -292,35 +284,40 @@ namespace Model.game
 		/// <returns> Dobble game in a string format </returns>
 		public override string ToString()
 		{
-			return "\nInformacion del Juego Dobble:\n" + "- id: " + Id + "\n" + "- nombre: " + Name + "\n" + "- estado: " + GameStatus + "\n" + "- jugadores: " + Players + "\n" + "- numero de jugadores:" + PlayersNumber + "\n" + "- zona de juego:" + CardsZone + "\n" + "- " + Dobble.DobbleCards + "\n";
+			return "\nInformacion del Juego Dobble:\n" + "- id: " + Id + "\n" + "- nombre: " + Name + "\n" + "- estado: " + GameStatus + "\n" + "- jugadores: " + Players + "\n" + "- numero de jugadores: " + PlayersNumber + "\n" + "- zona de juego:" + CardsZone + "\n" + "- " + Dobble.ToString() + "\n";
 
 		}
 
-        public override bool Equals(object obj)
-        {
-            return obj is DobbleGame game &&
-                   Id == game.Id &&
-                   EqualityComparer<DobbleGameStatus>.Default.Equals(GameStatus, game.GameStatus) &&
-                   Name == game.Name &&
-                   EqualityComparer<Dobble>.Default.Equals(Dobble, game.Dobble) &&
-                   EqualityComparer<List<Player>>.Default.Equals(Players, game.Players) &&
-                   EqualityComparer<DobbleGameStatus>.Default.Equals(Status, game.Status) &&
-                   EqualityComparer<List<Turn>>.Default.Equals(Turns, game.Turns) &&
-                   PlayersNumber == game.PlayersNumber &&
-                   DobbleGameMode == game.DobbleGameMode &&
-                   EqualityComparer<List<Card>>.Default.Equals(CardsZone, game.CardsZone) &&
-                   EqualityComparer<IMode>.Default.Equals(Mode, game.Mode);
-        }
+		public override bool Equals(object obj)
+		{
+			return obj is DobbleGame game &&
+				   Id == game.Id &&
+				   EqualityComparer<DobbleGameStatus>.Default.Equals(GameStatus, game.GameStatus) &&
+				   Name == game.Name &&
+				   EqualityComparer<Dobble>.Default.Equals(Dobble, game.Dobble) &&
+				   EqualityComparer<List<Player>>.Default.Equals(Players, game.Players) &&
+				   EqualityComparer<DobbleGameStatus>.Default.Equals(Status, game.Status) &&
+				   EqualityComparer<List<Turn>>.Default.Equals(Turns, game.Turns) &&
+				   PlayersNumber == game.PlayersNumber &&
+				   DobbleGameMode == game.DobbleGameMode &&
+				   EqualityComparer<List<Card>>.Default.Equals(CardsZone, game.CardsZone) &&
+				   EqualityComparer<IMode>.Default.Equals(Mode, game.Mode);
+		}
 
-        /// <summary>
-        /// @implNote verify if 2 objects are equals accord properties and others validations </summary>
-        /// <param Name="o"> any object </param>
-        /// <returns> true if objects are equals or false if objects are not equals </returns>
+		public override int GetHashCode()
+		{
+			throw new System.NotImplementedException();
+		}
+
+		/// <summary>
+		/// @implNote verify if 2 objects are equals accord properties and others validations </summary>
+		/// <param Name="o"> any object </param>
+		/// <returns> true if objects are equals or false if objects are not equals </returns>
 
 
-        #endregion
+		#endregion
 
-    }
+	}
 
 
 }

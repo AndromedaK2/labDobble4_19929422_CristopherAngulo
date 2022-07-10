@@ -61,8 +61,8 @@ namespace Model.dobble
 		/// <param name="elementsPerCard"> quantity elements per card </param>
 		/// <param name="maximumTotalCards"> maximum total cards of deck </param>
 		public Dobble(List<object> elements, int elementsPerCard, int maximumTotalCards)
-		{
-			this.Id = Helper.generateRandomNumber(1, 10000000);
+		{ 
+			this.Id = Helper.GenerateRandomNumber(1, 10000000);
 			this.AllElements = elements;
 			this.ElementsPerCard = elementsPerCard;
 			this.order = GetOrder(elementsPerCard);
@@ -329,12 +329,15 @@ namespace Model.dobble
 		{
 			return elementPerCard - 1;
 		}
-		 
+
         /// <summary>
         /// @implNote Shuffle current dobble cards
         /// </summary>
-        private void Shuffle() => _ = this.DobbleCards.OrderBy(card => card.Id);
-		 
+        private void Shuffle()
+        {
+			DobbleCards.Sort((x, y) => x.Id.CompareTo(y.Id));
+        }
+
         /// <summary>
         /// @implNote  validate if all cards have different elements </summary>
         /// <returns> true if all cards have different elements or false if they have not </returns>
