@@ -39,7 +39,7 @@ namespace Model.turn
 
 		public override string ToString()
 		{
-			return "\nJugador: " + Player.Username.ToUpper() + '\n';
+			return "\nTurno: " + Player.Username.ToUpper() + '\n';
 		}
 		#endregion
 

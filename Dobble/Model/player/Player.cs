@@ -90,7 +90,7 @@ namespace Model.player
             {
 				cardsString += "No tiene cartas";
             }
-			return "\n Jugador: \n" + " Nombre de usuario: " + Username.ToString() + "\n" + cardsString + "\n" + " Puntos: " + Cards.Count.ToString();
+			return "\n Jugador: \n" + " Nombre de usuario: " + Username.ToString() + "\n" + cardsString + "\n" + " Puntos: " + Cards.Count.ToString() +"\n";
 		}
 
 

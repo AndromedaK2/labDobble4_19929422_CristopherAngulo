@@ -153,16 +153,16 @@ namespace Model.game
 			Player player = new(username);
 			if (Players.Contains(player))
 			{
-				return "jugador ya existe";
+				return "Jugador ya existe";
 			}
-			if (PlayersNumber < Players.Count)
+			if (PlayersNumber <= Players.Count)
 			{
-				return "no se puede registrar";
+				return "No se ha logrado registrar, Capacidad maxima de jugadores";
 			}
 			Players.Add(player);
 			Turn turn = new(player);
 			Turns.Add(turn);
-			return "jugador registrado";
+			return "Jugador registrado";
 
 		}
 
@@ -185,6 +185,7 @@ namespace Model.game
 
 		public void StartGame()
 		{
+			GameStatus = DobbleGameStatus.STARTED;
 			Mode.StartGame(this);
 		}
 
@@ -311,10 +312,10 @@ namespace Model.game
 			}
 			else
 			{
-				cardsString = cardsString + "No hay cartas en juego";
+				cardsString += "No hay cartas en juego";
 			}
 
-			return "Informacion del Juego Dobble:\n\n" + "- id: " + Id.ToString() + "\n\n" + "- Nombre: " + Name.ToString() + "\n\n" + "- Estado: " + GameStatus.ToString() + "\n\n" + "- Jugadores: " + playersString  + "\n\n" + "- Numero de jugadores: " + PlayersNumber.ToString() + "\n\n" + "- Zona de juego:" + cardsString + "\n\n" + "- " + Dobble.ToString() + "\n";
+			return "Informacion del Juego Dobble:\n\n" + "- id: " + Id.ToString() + "\n\n" + "- Nombre: " + Name.ToString() + "\n\n" + "- Estado: " + GameStatus.ToString() + "\n\n" + "- Jugadores: " + playersString  + "\n\n" + "- Numero de jugadores: " + PlayersNumber.ToString() + "\n\n" + "- Zona de juego: " + cardsString + "\n\n" + "- " + Dobble.ToString() + "\n";
 
 		}
 

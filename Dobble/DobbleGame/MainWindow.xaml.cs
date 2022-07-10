@@ -12,6 +12,7 @@ namespace UI
     public partial class MainWindow : Window
     {
         public DobbleGame DobbleGame { get; set; }
+
         public MainWindow() 
         {
             InitializeComponent();
@@ -33,6 +34,10 @@ namespace UI
                 TxtGameStatus.Text = DobbleGame.ToString();
                 MessageBox.Show("Juego Creado");
 
+            }
+            catch (FormatException ex)
+            {
+                MessageBox.Show("Alguno de los campos es inválido");
             }
             catch (Exception ex)
             { 
@@ -66,9 +71,15 @@ namespace UI
         {
             try
             {
+                if (DobbleGame is null)
+                {
+                    MessageBox.Show("Debe crear un juego");
+                }
+                else {
+                    Register register = new(this.DobbleGame, TxtGameStatus);
+                    register.Show();
+                }
 
-                Register register = new(this.DobbleGame, TxtGameStatus);
-                register.Show();
             }
             catch (Exception)
             {
@@ -76,6 +87,53 @@ namespace UI
             }
         }
 
+        private void Play(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                if (DobbleGame is null)
+                {
 
+                    MessageBox.Show("Debe crear un juego");
+                }
+                else if (DobbleGame.Players.Count <= 0) {
+                
+                    MessageBox.Show("Debe registrar jugadores");
+
+                }
+
+                else
+                {
+                    Play play = new Play(DobbleGame);
+                    play.Show();
+                }
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        private void Simulater(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                if (DobbleGame is null && DobbleGame.Players.Count > 0)
+                {
+                    MessageBox.Show("Debe crear un juego");
+                }
+                else
+                {
+
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
     }
 }

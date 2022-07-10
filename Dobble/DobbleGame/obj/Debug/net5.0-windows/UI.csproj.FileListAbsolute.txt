@@ -27,3 +27,5 @@ C:\Users\Kurisu\Documents\GitHub\labDobble4_19929422_CristopherAngulo\Dobble\Dob
 C:\Users\Kurisu\Documents\GitHub\labDobble4_19929422_CristopherAngulo\Dobble\DobbleGame\obj\Debug\net5.0-windows\UI.genruntimeconfig.cache
 C:\Users\Kurisu\Documents\GitHub\labDobble4_19929422_CristopherAngulo\Dobble\DobbleGame\obj\Debug\net5.0-windows\Register.g.cs
 C:\Users\Kurisu\Documents\GitHub\labDobble4_19929422_CristopherAngulo\Dobble\DobbleGame\obj\Debug\net5.0-windows\Register.baml
+C:\Users\Kurisu\Documents\GitHub\labDobble4_19929422_CristopherAngulo\Dobble\DobbleGame\obj\Debug\net5.0-windows\Play.g.cs
+C:\Users\Kurisu\Documents\GitHub\labDobble4_19929422_CristopherAngulo\Dobble\DobbleGame\obj\Debug\net5.0-windows\Play.baml
