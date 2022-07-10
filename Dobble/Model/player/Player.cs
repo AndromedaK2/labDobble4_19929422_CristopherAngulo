@@ -14,7 +14,7 @@ namespace Model.player
 
 	public class Player : IPlayer
 	{
-		private bool InstanceFieldsInitialized = false;
+		private readonly bool InstanceFieldsInitialized = false;
 
 		private void InitializeInstanceFields()
 		{
@@ -22,7 +22,7 @@ namespace Model.player
 		}
 
 
-		//region attributes
+		#region properties
 		/// <summary>
 		/// @description Username of player in string format
 		/// </summary>
@@ -36,20 +36,15 @@ namespace Model.player
         /// </summary> 
         public int Points { get; set; }
 
-        //endregion
 
-        //region getter and setters
-        /// <returns> player username </returns>
+		#endregion
 
+		#region constructor
 
-        //endregion
-
-        //region constructor
-
-        /// <summary>
-        /// @implNote  Main Constructor </summary>
-        /// <param name="username"> name of player </param>
-        public Player(string username)
+		/// <summary>
+		/// @implNote  Main Constructor </summary>
+		/// <param name="username"> name of player </param>
+		public Player(string username)
 		{
 			if (!InstanceFieldsInitialized)
 			{
@@ -57,11 +52,11 @@ namespace Model.player
 				InstanceFieldsInitialized = true;
 			}
 
-			this.Username = username;
+			Username = username;
 		}
-		//endregion
+		#endregion
 
-		//region public methods
+		#region public methods
 
 		/// <summary>
 		/// @implNote this method receive a card list to added his card list attribute </summary>
@@ -69,14 +64,14 @@ namespace Model.player
 		/// <seealso cref="Card"/>
 		public  void AddCards(IList<Card> cards)
 		{
-			((List<Card>)this.Cards).AddRange(cards);
-			this.Points = this.Cards.Count;
+            Cards.AddRange(cards);
+			Points = Cards.Count;
 		}
 
 		public void RemoveCards() 
 		{
-			this.Cards = new List<Card>();
-			this.Points = 0;
+			Cards = new List<Card>();
+			Points = 0;
 		}
 
 		/// <summary>
@@ -84,15 +79,23 @@ namespace Model.player
 		/// <returns> player in a string format </returns>
 		public override string ToString()
 		{
-			return "Jugador: \n" + "Nombre de usuario: " + Username + "\n" + Cards + "\n" + "Puntos: " + Cards.Count;
+			return "Jugador: \n" + "Nombre de usuario: " + Username.ToString() + "\n" + Cards.ToString() + "\n" + "Puntos: " + Cards.Count.ToString();
 		}
+
 
 		/// <summary>
 		/// @implNote verify if 2 objects are equals accord properties and others validations </summary>
 		/// <param name="o"> any object </param>
 		/// <returns> true if objects are equals or false if objects are not equals </returns>
 
-		//endregion
+		public override bool Equals(object obj)
+		{
+			return obj is Player player &&
+				   Username == player.Username &&
+				   EqualityComparer<List<Card>>.Default.Equals(Cards, player.Cards) &&
+				   Points == player.Points;
+		}
+		#endregion
 
 	}
 

@@ -37,7 +37,7 @@ namespace Model.game
 		/// @implNote  get game Players </summary>
 		/// <returns> Players </returns>
 
-		public List<Player> Players { get; set; }
+		public List<Player> Players { get; set; } = new List<Player>();
 
 
 
@@ -52,7 +52,7 @@ namespace Model.game
 		/// @implNote  get all Turns in the game </summary>
 		/// <returns> Turns </returns>
 
-		public List<Turn> Turns { get; set; }
+		public List<Turn> Turns { get; set; } = new List<Turn>();
 
 
 		/// <summary>
@@ -72,7 +72,7 @@ namespace Model.game
 		/// <summary>
 		/// @implNote  get cards zone </summary>
 		/// <returns> cards </returns>
-		public List<Card> CardsZone { get; set; }
+		public List<Card> CardsZone { get; set; } = new List<Card>();
 
 		/// <summary>
 		/// @implNote  get game Mode </summary>
@@ -100,14 +100,14 @@ namespace Model.game
 
 		public DobbleGame(List<object> elements, int elementsPerCard, int maximumTotalCards, DobbleGameMode DobbleGameMode, int PlayersNumber, string Name, List<Player> Players, List<Turn> Turns)
 		{
-			this.Id = Helper.GenerateRandomNumber(1, 1000);
+			Id = Helper.GenerateRandomNumber(1, 1000);
 			this.PlayersNumber = PlayersNumber;
-			this.Dobble = new Dobble(elements, elementsPerCard, maximumTotalCards);
+			Dobble = new Dobble(elements, elementsPerCard, maximumTotalCards);
 			this.DobbleGameMode = DobbleGameMode;
 			this.Name = Name;
 			this.Players = Players;
 			this.Turns = Turns;
-			this.SetMode(DobbleGameMode);
+			SetMode(DobbleGameMode);
 		}
 
 		/// <param Name="elements"> </param>
@@ -118,12 +118,12 @@ namespace Model.game
 		/// <param Name="Name"> </param>
 		public DobbleGame(List<object> elements, int elementsPerCard, int maximumTotalCards, DobbleGameMode DobbleGameMode, int PlayersNumber, string Name)
 		{
-			this.Id = Helper.GenerateRandomNumber(1, 1000);
+			Id = Helper.GenerateRandomNumber(1, 1000);
 			this.PlayersNumber = PlayersNumber;
-			this.Dobble = new Dobble(elements, elementsPerCard, maximumTotalCards);
+			Dobble = new Dobble(elements, elementsPerCard, maximumTotalCards);
 			this.DobbleGameMode = DobbleGameMode;
 			this.Name = Name;
-			this.SetMode(DobbleGameMode);
+			SetMode(DobbleGameMode);
 
 		}
 		#endregion
@@ -135,7 +135,7 @@ namespace Model.game
 		/// <returns> a turn </returns>
 		public Turn WhoseIsTurn()
 		{
-			return this.Turns[0];
+			return Turns[0];
 
 		}
 
@@ -147,18 +147,18 @@ namespace Model.game
 		/// <returns> true if method could register or false the opposite </returns>
 		public string Register(string username)
 		{
-			Player player = new Player(username);
-			if (this.Players.Contains(player))
+			Player player = new(username);
+			if (Players.Contains(player))
 			{
 				return "jugador ya existe";
 			}
-			if (this.PlayersNumber < this.Players.Count)
+			if (PlayersNumber < Players.Count)
 			{
 				return "no se puede registrar";
 			}
-			this.Players.Add(player);
+			Players.Add(player);
 			Turn turn = new(player);
-			this.Turns.Add(turn);
+			Turns.Add(turn);
 			return "jugador registrado";
 
 		}
@@ -173,7 +173,7 @@ namespace Model.game
 			switch (DobbleGameMode)
 			{
 				case DobbleGameMode.STACKMODE:
-					this.Mode = new StackMode();
+					Mode = new StackMode();
 					break;
 			}
 
@@ -182,7 +182,7 @@ namespace Model.game
 
 		public void StartGame()
 		{
-			this.Mode.StartGame(this);
+			Mode.StartGame(this);
 		}
 
 		/// <summary>
@@ -192,21 +192,21 @@ namespace Model.game
 		/// <returns> true if player fin common element between cards or false if it is the opposite </returns>
 		public bool Spotit(object element)
 		{
-			bool spotit = this.Mode.Spotit(element, this.CardsZone);
+			bool spotit = Mode.Spotit(element, CardsZone);
 			if (spotit)
 			{
 				Player player = WhoseIsTurn().Player;
-				int playerIndex = this.Players.IndexOf(player);
-				player = this.Mode.UpdatePlayerCards(player, this.CardsZone);
-				this.Players[playerIndex] = player;
-				this.ResetCardsZone();
-				this.NextTurn();
+				int playerIndex = Players.IndexOf(player);
+				player = Mode.UpdatePlayerCards(player, CardsZone);
+				Players[playerIndex] = player;
+				ResetCardsZone();
+				NextTurn();
 				return true;
 
 			}
-			this.ResetDobbleCards();
-			this.ResetCardsZone();
-			this.NextTurn();
+			ResetDobbleCards();
+			ResetCardsZone();
+			NextTurn();
 			return false;
 
 		}
@@ -217,12 +217,12 @@ namespace Model.game
 		/// </summary>
 		public void PassTurn()
 		{
-			this.ResetDobbleCards();
-			this.ResetCardsZone();
+			ResetDobbleCards();
+			ResetCardsZone();
 			Turn currentTurn = WhoseIsTurn();
-			int turnIndex = this.Turns.IndexOf(currentTurn);
-			this.Turns.RemoveAt(turnIndex);
-			this.Turns.Add(currentTurn);
+			int turnIndex = Turns.IndexOf(currentTurn);
+			Turns.RemoveAt(turnIndex);
+			Turns.Add(currentTurn);
 		}
 
 		/// <summary>
@@ -231,9 +231,9 @@ namespace Model.game
 		public void NextTurn()
 		{
 			Turn currentTurn = WhoseIsTurn();
-			int turnIndex = this.Turns.IndexOf(currentTurn);
-			this.Turns.RemoveAt(turnIndex);
-			this.Turns.Add(currentTurn);
+			int turnIndex = Turns.IndexOf(currentTurn);
+			Turns.RemoveAt(turnIndex);
+			Turns.Add(currentTurn);
 		}
 
 		/// <summary>
@@ -241,7 +241,7 @@ namespace Model.game
 		/// </summary>
 		public void ResetDobbleCards()
 		{
-			this.Dobble.DobbleCards = this.Mode.ResetDobbleCards(this.Dobble.DobbleCards, this.CardsZone);
+			Dobble.DobbleCards = Mode.ResetDobbleCards(Dobble.DobbleCards, CardsZone);
 		}
 
 		/// <summary>
@@ -249,7 +249,7 @@ namespace Model.game
 		/// </summary>
 		public void ResetCardsZone()
 		{
-			this.CardsZone = this.Mode.ResetCardsZone(this.CardsZone);
+			CardsZone = Mode.ResetCardsZone(CardsZone);
 		}
 
 		/// <summary>
@@ -259,7 +259,7 @@ namespace Model.game
 		public string Winner()
 		{
 
-			Player player = this.Mode.GetWinner(this.Players);
+			Player player = Mode.GetWinner(Players);
 			if (player.Points > 0)
 			{
 				return player.ToString();
@@ -276,7 +276,7 @@ namespace Model.game
 		/// </summary>
 		public void EndGame()
 		{
-			this.Mode.EndGame(this);
+			Mode.EndGame(this);
 		}
 
 		/// <summary>
@@ -284,7 +284,7 @@ namespace Model.game
 		/// <returns> Dobble game in a string format </returns>
 		public override string ToString()
 		{
-			return "\nInformacion del Juego Dobble:\n" + "- id: " + Id + "\n" + "- nombre: " + Name + "\n" + "- estado: " + GameStatus + "\n" + "- jugadores: " + Players + "\n" + "- numero de jugadores: " + PlayersNumber + "\n" + "- zona de juego:" + CardsZone + "\n" + "- " + Dobble.ToString() + "\n";
+			return "Informacion del Juego Dobble:\n\n" + "- id: " + Id.ToString() + "\n\n" + "- nombre: " + Name.ToString() + "\n\n" + "- estado: " + GameStatus.ToString() + "\n\n" + "- jugadores: " + Players.ToString() + "\n\n" + "- numero de jugadores: " + PlayersNumber.ToString() + "\n\n" + "- zona de juego:" + CardsZone.ToString() + "\n\n" + "- " + Dobble.ToString() + "\n";
 
 		}
 

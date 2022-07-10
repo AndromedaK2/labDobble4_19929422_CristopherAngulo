@@ -17,7 +17,6 @@ namespace UI
             InitializeComponent();
         }
 
-
         private void CreateGame(object sender, RoutedEventArgs e)
         {
             try
@@ -31,29 +30,56 @@ namespace UI
 
                 DobbleGame = new DobbleGame(elements,elementsPerCard,totalCards,dobbleGameMode,playersNumber,gameName);
 
-                MessageBox.Show(DobbleGame.ToString());
+                TxtGameStatus.Text = DobbleGame.ToString();
+                MessageBox.Show("Juego Creado");
+
+            
 
 
             }
             catch (Exception ex)
-            {
-                _ = MessageBox.Show(ex.Message);
+            { 
+                MessageBox.Show(ex.Message);
             }
 
         }
 
-
         private List<object> MapElements()
         {
             List<object> mapElements = new();
-            string[] elements = TxtElements.Text.Split(",");
+            try
+            {
+                string[] elements = TxtElements.Text.Split(",");
 
-            for (int i = 0; i < elements.Length; i++)    
-                mapElements.Add(elements[i]);
-            
+                for (int i = 0; i < elements.Length; i++)
+                    mapElements.Add(elements[i]);
+
+                return mapElements;
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Elementos no válidos");
+            }
+
             return mapElements;
+
         }
 
+        private void RegisterPlayer(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                string username = TxtPlayerName.Text;
+                         
+                
+                MessageBox.Show(DobbleGame.Register(username));
+                TxtGameStatus.Text = DobbleGame.ToString();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("No se ha podido registrar el jugador");
+            }
+        }
 
 
     }

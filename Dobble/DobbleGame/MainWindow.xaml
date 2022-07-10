@@ -18,12 +18,17 @@
 
         <Label Content="Cantidad de Cartas:" HorizontalAlignment="Left" Margin="115,199,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="TxtTotalCards" HorizontalAlignment="Left" Margin="270,209,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" RenderTransformOrigin="1.042,0.169"/>
-        
+
         <Label Content="Número de Jugadores:" HorizontalAlignment="Left" Margin="115,254,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="TxtTotalPlayers" HorizontalAlignment="Left" Margin="270,259,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" RenderTransformOrigin="1.042,0.169"/>
 
 
         <Button Content="Crear Juego" Click="CreateGame" HorizontalAlignment="Left" Margin="120,329,0,0" VerticalAlignment="Top" Height="25" Width="92"/>
+        <Label Content="Datos del Juego Creado:" HorizontalAlignment="Left" Margin="516,34,0,0" VerticalAlignment="Top"/>
+        <TextBlock x:Name="TxtGameStatus" Text="No hay un juego creado" HorizontalAlignment="Left" Margin="677,39,0,0" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="-0.101,0.629"/>
 
+        <Label Content="Nombre Jugador:" HorizontalAlignment="Left" Margin="490,323,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.426,0.618"/>
+        <TextBox x:Name="TxtPlayerName" HorizontalAlignment="Left" Margin="615,334,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" RenderTransformOrigin="1.042,0.169"/>
+        <Button Content="Registrar Jugador" Click="RegisterPlayer" HorizontalAlignment="Left" Margin="490,369,0,0" VerticalAlignment="Top" Height="30" Width="110"/>
     </Grid>
 </Window>

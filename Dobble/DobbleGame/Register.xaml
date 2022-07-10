@@ -1,0 +1,15 @@
+﻿<Window x:Class="UI.Register"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:UI"
+        mc:Ignorable="d"
+        Title="Register" Height="200" Width="600">
+    <Grid>
+        <Label Content="Nombre Jugador:" HorizontalAlignment="Left" Margin="119,34,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.426,0.618"/>
+        <TextBox x:Name="TxtPlayerName" HorizontalAlignment="Left" Margin="265,41,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" RenderTransformOrigin="1.042,0.169"/>
+        <Button Content="Registrar Jugador" Click="RegisterPlayer" HorizontalAlignment="Left" Margin="120,79,0,0" VerticalAlignment="Top" Height="30" Width="110"/>
+
+    </Grid>
+</Window>
