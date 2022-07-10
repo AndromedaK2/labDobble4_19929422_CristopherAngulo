@@ -73,7 +73,7 @@ namespace Model.dobble
 			Shuffle();
 			if (!(GetMaxNumberOfCards(order) == maximumTotalCards))
 			{
-				List<Card> DobbleCards = new List<Card>();
+				List<Card> DobbleCards = new();
 				int i = 0;
 
 				for (; i < maximumTotalCards; i++)
@@ -83,7 +83,7 @@ namespace Model.dobble
 
 				for (int j = i; j < this.DobbleCards.Count; j++)
 				{
-					this.MissingCards.Add(this.DobbleCards[j]);
+					MissingCards.Add(this.DobbleCards[j]);
 				}
 
 				this.DobbleCards = DobbleCards;
@@ -371,7 +371,7 @@ namespace Model.dobble
 
         public override int GetHashCode()
         {
-            throw new NotImplementedException();
+			return 0;
         }
     }
 

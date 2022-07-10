@@ -33,9 +33,6 @@ namespace UI
                 TxtGameStatus.Text = DobbleGame.ToString();
                 MessageBox.Show("Juego Creado");
 
-            
-
-
             }
             catch (Exception ex)
             { 
@@ -69,11 +66,9 @@ namespace UI
         {
             try
             {
-                string username = TxtPlayerName.Text;
-                         
-                
-                MessageBox.Show(DobbleGame.Register(username));
-                TxtGameStatus.Text = DobbleGame.ToString();
+
+                Register register = new(this.DobbleGame, TxtGameStatus);
+                register.Show();
             }
             catch (Exception)
             {

@@ -30,7 +30,7 @@ namespace Model.player
 		/// <summary>
 		/// @description this list of cards owned by player
 		/// </summary>
-		public List<Card> Cards { get; set;  } = new List<Card>();
+		public List<Card> Cards { get; set;  } 
         /// <summary>
         /// @description Is the sum  for each card
         /// </summary> 
@@ -46,13 +46,15 @@ namespace Model.player
 		/// <param name="username"> name of player </param>
 		public Player(string username)
 		{
+
+
+			Username = username;
+			Cards = new List<Card>();
 			if (!InstanceFieldsInitialized)
 			{
 				InitializeInstanceFields();
 				InstanceFieldsInitialized = true;
 			}
-
-			Username = username;
 		}
 		#endregion
 
@@ -79,7 +81,16 @@ namespace Model.player
 		/// <returns> player in a string format </returns>
 		public override string ToString()
 		{
-			return "Jugador: \n" + "Nombre de usuario: " + Username.ToString() + "\n" + Cards.ToString() + "\n" + "Puntos: " + Cards.Count.ToString();
+			string cardsString = " Cartas: "; 
+			if (Cards.Count > 0)
+			{
+				Cards.ForEach(action: c => cardsString = string.Join(cardsString, c.ToString()));
+            }
+            else
+            {
+				cardsString += "No tiene cartas";
+            }
+			return "\n Jugador: \n" + " Nombre de usuario: " + Username.ToString() + "\n" + cardsString + "\n" + " Puntos: " + Cards.Count.ToString();
 		}
 
 
@@ -91,12 +102,15 @@ namespace Model.player
 		public override bool Equals(object obj)
 		{
 			return obj is Player player &&
-				   Username == player.Username &&
-				   EqualityComparer<List<Card>>.Default.Equals(Cards, player.Cards) &&
-				   Points == player.Points;
+				   Username == player.Username;
 		}
-		#endregion
 
-	}
+        public override int GetHashCode()
+        {
+			return 0;
+        }
+        #endregion
+
+    }
 
 }

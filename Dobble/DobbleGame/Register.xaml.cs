@@ -21,11 +21,13 @@ namespace UI
     /// </summary>
     public partial class Register : Window
     {
-        DobbleGame DobbleGame = null;
-        public Register(DobbleGame dobbleGame)
+        readonly DobbleGame DobbleGame = null;
+        public TextBlock TextBlock { get; set; }
+        public Register(DobbleGame dobbleGame, TextBlock textBlock)
         {
             InitializeComponent();
             this.DobbleGame = dobbleGame;
+            this.TextBlock = textBlock;
 
         }
 
@@ -34,8 +36,9 @@ namespace UI
             try
             {
                 string username = TxtPlayerName.Text;
-                this.DobbleGame.Register(username);
-                MessageBox.Show("Se ha registrado un jugador");
+             
+                MessageBox.Show(this.DobbleGame.Register(username));
+                TextBlock.Text = this.DobbleGame.ToString();
             }
             catch (Exception)
             {

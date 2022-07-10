@@ -8,7 +8,7 @@
         Title="Dobble Game" Height="800" Width="1400">
     <Grid>
         <Label Content="Nombre del Juego:" HorizontalAlignment="Left" Margin="119,34,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.426,0.618"/>
-        <TextBox x:Name="TxtGameName" HorizontalAlignment="Left" Margin="270,44,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" RenderTransformOrigin="1.042,0.169"/>
+        <TextBox x:Name="TxtGameName"  HorizontalAlignment="Left" Margin="270,44,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" RenderTransformOrigin="1.042,0.169" />
 
         <Label Content="Elementos por carta:" HorizontalAlignment="Left" Margin="117,93,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.426,0.618"/>
         <TextBox x:Name="TxtElementsPerCard" HorizontalAlignment="Left" Margin="270,94,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" RenderTransformOrigin="1.042,0.169"/>
@@ -26,9 +26,7 @@
         <Button Content="Crear Juego" Click="CreateGame" HorizontalAlignment="Left" Margin="120,329,0,0" VerticalAlignment="Top" Height="25" Width="92"/>
         <Label Content="Datos del Juego Creado:" HorizontalAlignment="Left" Margin="516,34,0,0" VerticalAlignment="Top"/>
         <TextBlock x:Name="TxtGameStatus" Text="No hay un juego creado" HorizontalAlignment="Left" Margin="677,39,0,0" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="-0.101,0.629"/>
-
-        <Label Content="Nombre Jugador:" HorizontalAlignment="Left" Margin="490,323,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.426,0.618"/>
-        <TextBox x:Name="TxtPlayerName" HorizontalAlignment="Left" Margin="615,334,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" RenderTransformOrigin="1.042,0.169"/>
-        <Button Content="Registrar Jugador" Click="RegisterPlayer" HorizontalAlignment="Left" Margin="490,369,0,0" VerticalAlignment="Top" Height="30" Width="110"/>
+        <Button Content="Registrar Jugador" Click="RegisterPlayer" HorizontalAlignment="Left" Margin="115,449,0,0" VerticalAlignment="Top" Height="30" Width="110"/>
+        <TextBlock HorizontalAlignment="Left" Margin="125,394,0,0" Text="Opciones: " TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.201,0.316"/>
     </Grid>
 </Window>

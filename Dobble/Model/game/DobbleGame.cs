@@ -4,6 +4,7 @@ using Model.mode;
 using Model.player;
 using Model.turn;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Model.game
 { 
@@ -37,7 +38,7 @@ namespace Model.game
 		/// @implNote  get game Players </summary>
 		/// <returns> Players </returns>
 
-		public List<Player> Players { get; set; } = new List<Player>();
+		public List<Player> Players { get; set; }
 
 
 
@@ -72,7 +73,7 @@ namespace Model.game
 		/// <summary>
 		/// @implNote  get cards zone </summary>
 		/// <returns> cards </returns>
-		public List<Card> CardsZone { get; set; } = new List<Card>();
+		public List<Card> CardsZone { get; set; }
 
 		/// <summary>
 		/// @implNote  get game Mode </summary>
@@ -123,6 +124,8 @@ namespace Model.game
 			Dobble = new Dobble(elements, elementsPerCard, maximumTotalCards);
 			this.DobbleGameMode = DobbleGameMode;
 			this.Name = Name;
+			this.Players = new List<Player>();
+			this.CardsZone = new List<Card>();
 			SetMode(DobbleGameMode);
 
 		}
@@ -284,7 +287,34 @@ namespace Model.game
 		/// <returns> Dobble game in a string format </returns>
 		public override string ToString()
 		{
-			return "Informacion del Juego Dobble:\n\n" + "- id: " + Id.ToString() + "\n\n" + "- nombre: " + Name.ToString() + "\n\n" + "- estado: " + GameStatus.ToString() + "\n\n" + "- jugadores: " + Players.ToString() + "\n\n" + "- numero de jugadores: " + PlayersNumber.ToString() + "\n\n" + "- zona de juego:" + CardsZone.ToString() + "\n\n" + "- " + Dobble.ToString() + "\n";
+			string playersString = "";
+			if (Players.Count>0) {
+
+                for (int i = 0; i < Players.Count; i++)
+                {
+					playersString += Players[i];
+				}
+				
+            }
+            else
+            {
+				playersString = "No hay jugadores registrados";
+            }
+
+			string cardsString = "";
+			if (CardsZone.Count > 0)
+			{
+				for (int i = 0; i < CardsZone.Count; i++)
+				{
+					playersString += CardsZone[i];
+				}
+			}
+			else
+			{
+				cardsString = cardsString + "No hay cartas en juego";
+			}
+
+			return "Informacion del Juego Dobble:\n\n" + "- id: " + Id.ToString() + "\n\n" + "- Nombre: " + Name.ToString() + "\n\n" + "- Estado: " + GameStatus.ToString() + "\n\n" + "- Jugadores: " + playersString  + "\n\n" + "- Numero de jugadores: " + PlayersNumber.ToString() + "\n\n" + "- Zona de juego:" + cardsString + "\n\n" + "- " + Dobble.ToString() + "\n";
 
 		}
 
