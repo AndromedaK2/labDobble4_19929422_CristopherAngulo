@@ -19,19 +19,19 @@ namespace Model.turn
 		/// <summary>
 		/// @description Player associated to the current turn
 		/// </summary>
-		public Player Player { get; set; } 
+		public Player Player { get; set; }
 		//endregion
 
 
 
-		//region constructor
+		#region constructor
 		public Turn(Player player)
 		{
 			this.Player = player;
 		}
-		//endregion
+		#endregion
 
-		//region public methods
+		#region public methods
 
 		/// <summary>
 		/// @implNote  this method is overriding to return a turn string </summary>
@@ -39,9 +39,9 @@ namespace Model.turn
 
 		public override string ToString()
 		{
-			return "\nJugador: " + Player..ToUpper() + '\n';
+			return "\nJugador: " + Player.Username.ToUpper() + '\n';
 		}
-		//endregion
+		#endregion
 
 
 	}
