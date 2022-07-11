@@ -316,7 +316,8 @@ namespace Model.game
 				cardsString += "No hay cartas en juego";
 			}
 
-			return "Informacion del Juego Dobble:\n\n" + "- Id: " + Id.ToString() + "\n" + "- Nombre Juego: " + Name.ToString() + "\n" + "- Estado: " + GameStatus.ToString() + "\n" + "- Jugadores: " + playersString  + "\n\n" + "- Numero de jugadores: " + PlayersNumber.ToString() + "\n" + "- Zona de juego:\n " + cardsString + "\n" + "- " + Dobble.ToString() + "\n";
+			return "Informacion del Juego Dobble:\n\n" + "- Id: " + Id.ToString() + "\n" + "- Nombre Juego: " + Name.ToString() + "\n" + "- Estado: " + GameStatus.ToString() + "\n" + "- Jugadores: " + playersString  + "\n\n" + "- Numero de jugadores: " + PlayersNumber.ToString() + "\n" + "- Zona de juego:\n " + cardsString + "\n" + "- " + Dobble.ToString() + "\n" +
+				Dobble.GetMissingCards();
 
 		}
 

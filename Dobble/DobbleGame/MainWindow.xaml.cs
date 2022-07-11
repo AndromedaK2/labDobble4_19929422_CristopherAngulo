@@ -23,8 +23,6 @@ namespace UI
         public MainWindow() 
         {
             InitializeComponent();
-            CmboCards.IsEnabled = false;
-
         }
 
         /// <summary>
@@ -98,7 +96,10 @@ namespace UI
 
         }
 
-
+        /// <summary>
+        /// validate elements
+        /// </summary>
+        /// <param name="_elements"></param>
         private void ValidateElements(List<object> _elements)
         {
             List<object> elements = _elements;
@@ -109,6 +110,10 @@ namespace UI
             
         }
 
+        /// <summary>
+        /// validate order
+        /// </summary>
+        /// <param name="elementsPerCard"></param>
         private void ValidateOrder(int elementsPerCard)
         {
             bool validOrder = Helper.IsValidOrder(elementsPerCard-1);

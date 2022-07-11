@@ -112,12 +112,20 @@ namespace Model.dobble
 		public string GetMissingCards()  
 		{
 			string missingCardsString = "\nCartas Faltantes: \n";
-			for (int i = 0; i < MissingCards.Count; i++)
-			{
-				Card card = MissingCards[i];
-				string cardString = card.ToString();
-				missingCardsString += cardString;
-			}
+            if (MissingCards.Count>0)
+            {
+				for (int i = 0; i < MissingCards.Count; i++)
+				{
+					Card card = MissingCards[i];
+					string cardString = card.ToString();
+					missingCardsString += cardString;
+				}
+            }
+            else
+            {
+				missingCardsString += "No hay cartas faltantes";
+            }
+
 			return "" + missingCardsString;
 		}
 
