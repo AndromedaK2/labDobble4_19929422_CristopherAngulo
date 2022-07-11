@@ -6,11 +6,11 @@
         xmlns:local="clr-namespace:UI"
         Background="DarkSlateBlue"
         mc:Ignorable="d"
-        Title="Register" Height="200" Width="450">
+        Title="Register" Height="200" Width="500">
     <Grid>
-        <Label Foreground="White"  Content="Nombre Jugador:" HorizontalAlignment="Left" Margin="119,34,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.426,0.618"/>
-        <TextBox x:Name="TxtPlayerName" HorizontalAlignment="Left" Margin="245,41,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="185" RenderTransformOrigin="1.042,0.169"/>
-        <Button Foreground="AliceBlue" Background="MediumPurple" Content="Registrar Jugador" Click="RegisterPlayer" HorizontalAlignment="Left" Margin="120,79,0,0" VerticalAlignment="Top" Height="30" Width="110"/>
+        <Label Foreground="White"  Content="Nombre Jugador:" HorizontalAlignment="Left" Margin="58,34,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.426,0.618"/>
+        <TextBox x:Name="TxtPlayerName" HorizontalAlignment="Left" Margin="180,39,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="185" RenderTransformOrigin="1.042,0.169"/>
+        <Button Foreground="AliceBlue" Background="MediumPurple" Content="Registrar Jugador" Click="RegisterPlayer" HorizontalAlignment="Left" Margin="65,94,0,0" VerticalAlignment="Top" Height="30" Width="110"/>
 
     </Grid>
 </Window>

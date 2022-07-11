@@ -1,22 +1,19 @@
-﻿<Window x:Class="UI.Play"
+﻿<Window x:Class="UI.Simulator"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        mc:Ignorable="d"
+        xmlns:local="clr-namespace:UI"
         Background="DarkSlateBlue"
         WindowState="Maximized"
         WindowStyle="SingleBorderWindow"
         
-        Title="Play" Height="800" Width="1200">
+        Title="Play" Height="800" Width="1200"
+        mc:Ignorable="d">
     <Grid>
         <Border  Background="MediumPurple" BorderThickness="1" BorderBrush="White" HorizontalAlignment="Left" Height="230" Margin="40,64,0,0" VerticalAlignment="Top" Width="640"/>
         <TextBlock  Foreground="White" x:Name="TxtCurrentTurn" HorizontalAlignment="Left" Margin="47,19,0,0" Text="Turno del Jugador Actual" TextWrapping="Wrap" VerticalAlignment="Top"/>
-        <Button Foreground="AliceBlue" Background="MediumPurple" Click="Spotit" Content="Spotit" HorizontalAlignment="Left" Height="30" Margin="55,354,0,0" VerticalAlignment="Top" Width="100"/>
-        <Button Foreground="AliceBlue" Background="MediumPurple" Click="PassTurn" Content="Pasar Turno" HorizontalAlignment="Left" Height="30" Margin="470,309,0,0" VerticalAlignment="Top" Width="100"/>
-        <Button Foreground="AliceBlue" Background="MediumPurple" Click="FinishGame" Content="Finalizar Juego" HorizontalAlignment="Left" Height="30" Margin="585,309,0,0" VerticalAlignment="Top" Width="100"/>
-        <Label  Foreground="White" Content="Ingresar Símbolo en común: " HorizontalAlignment="Left" Margin="55,319,0,0" VerticalAlignment="Top"/>
-        <TextBox  x:Name="TxtSpotit" HorizontalAlignment="Left" Margin="230,324,0,0"  TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Button Foreground="AliceBlue" Background="MediumPurple" Click="CloseGame" Content="Finalizar Juego" HorizontalAlignment="Left" Height="30" Margin="180,339,0,0" VerticalAlignment="Top" Width="100"/>
         <Label  Foreground="White" Content="Zona de Juego" HorizontalAlignment="Left" Margin="304,28,0,0" VerticalAlignment="Top"/>
 
         <TextBlock  Foreground="White" x:Name="TxtFirstCard" FontSize="15" HorizontalAlignment="Left" Margin="90,139,0,0" Text="Primera Carta" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.896,0.629" Height="125" Width="235"/>
@@ -26,7 +23,18 @@
         <Border Background="MediumPurple"  BorderThickness="1" BorderBrush="White" HorizontalAlignment="Left" Height="685" Margin="715,64,0,0" VerticalAlignment="Top" Width="450"/>
         <Label   Foreground="White" Content="Estado Completo del Juego" HorizontalAlignment="Left" Margin="790,19,0,0" VerticalAlignment="Top"/>
         <TextBlock Foreground="White" x:Name="TxtGameStatus" HorizontalAlignment="Left" Margin="756,88,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
-
+        <Button Foreground="AliceBlue" Background="MediumPurple" Click="StartGame" Content="Comenzar Juego" HorizontalAlignment="Left" Height="30" Margin="50,339,0,0" VerticalAlignment="Top" Width="100" RenderTransformOrigin="0.7,2.001"/>
+        <Border  Background="MediumPurple" BorderThickness="1" BorderBrush="White" HorizontalAlignment="Left" Height="319" Margin="46,429,0,0" VerticalAlignment="Top" Width="640" RenderTransformOrigin="0.5,0.5">
+            <Border.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleX="0.741"/>
+                    <RotateTransform/>
+                    <TranslateTransform X="1.487"/>
+                </TransformGroup>
+            </Border.RenderTransform>
+        </Border>
+        <TextBlock  Foreground="White" x:Name="TxtPlayerRegister" FontSize="14" HorizontalAlignment="Left" Margin="80,459,0,0" Text="Simulación" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.896,0.629" Height="250" Width="570"/>
 
 
     </Grid>

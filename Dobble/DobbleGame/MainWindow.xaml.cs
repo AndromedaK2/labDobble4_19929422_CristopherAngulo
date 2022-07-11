@@ -35,7 +35,7 @@ namespace UI
                 MessageBox.Show("Juego Creado");
 
             }
-            catch (FormatException ex)
+            catch (FormatException)
             {
                 MessageBox.Show("Alguno de los campos es inválido");
             }
@@ -128,13 +128,12 @@ namespace UI
                 {
 
                     MessageBox.Show("Debe registrar jugadores");
-
                 }
 
                 else
                 {
-                    Play play = new(DobbleGame, TxtGameStatus);
-                    play.Show();
+                    Simulator simulator = new(DobbleGame, TxtGameStatus);
+                    simulator.Show();
                 }
             }
             catch (Exception)

@@ -10,6 +10,8 @@
         WindowState="Maximized"
         Title="Dobble Game" Height="650" Width="1300">
     <Grid>
+        <Border  Background="MediumSlateBlue" BorderThickness="1" BorderBrush="White" HorizontalAlignment="Left" Height="580" Margin="625,19,0,0" VerticalAlignment="Top" Width="565"/>
+
         <Border Background="MediumSlateBlue" BorderThickness="1" BorderBrush="White" HorizontalAlignment="Left" Height="210" Margin="40,389,0,0" VerticalAlignment="Top" Width="530"/>
 
         <Border Background="MediumSlateBlue" BorderThickness="1" BorderBrush="White" HorizontalAlignment="Left" Height="355" Margin="40,19,0,0" VerticalAlignment="Top" Width="530"/>
@@ -30,12 +32,13 @@
 
 
         <Button Foreground="AliceBlue" Background="MediumPurple"  Content="Crear Juego" Click="CreateGame" HorizontalAlignment="Left" Margin="120,329,0,0" VerticalAlignment="Top" Height="25" Width="92"/>
-        <TextBlock Background="MediumSlateBlue" Foreground="WhiteSmoke" x:Name="TxtGameStatus" Margin="590,19,37,40"><Run Language="es-cl" Text="    "/><LineBreak/><Run Language="es-cl"/><Run/><LineBreak/><Run/><LineBreak/><Run/><LineBreak/><Run/><LineBreak/><Run/><LineBreak/><Run/><LineBreak/><Run/><LineBreak/><Run/><LineBreak/><Run/><LineBreak/><Run Language="es-cl" Text="                                                              "/><Run Text="No hay un juego creado"/></TextBlock>
+
 
         <Button Foreground="AliceBlue" Background="MediumPurple" Content="Registrar Jugador" Click="RegisterPlayer" HorizontalAlignment="Left" Margin="85,504,0,0" VerticalAlignment="Top" Height="30" Width="120"/>
         <TextBlock Foreground="White"  HorizontalAlignment="Left" Margin="94,463,0,0" Text="Opciones: " TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.201,0.316"/>
         <Button Foreground="AliceBlue" Background="MediumPurple"  Click="Play" Content="Jugar" HorizontalAlignment="Left" Margin="230,504,0,0" VerticalAlignment="Top" Width="120" Height="30"/>
         <Button Foreground="AliceBlue" Background="MediumPurple" Click="Simulater" Content="Simular" HorizontalAlignment="Left" Margin="390,504,0,0" VerticalAlignment="Top" Width="120" Height="30"/>
+        <TextBlock  Foreground="AliceBlue" x:Name="TxtGameStatus" HorizontalAlignment="Left" Margin="676,59,0,0" Text="No hay un juego creado" TextWrapping="Wrap" VerticalAlignment="Top" Height="530" Width="489"/>
 
     </Grid>
 </Window>
