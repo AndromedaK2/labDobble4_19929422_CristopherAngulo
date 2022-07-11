@@ -1,4 +1,5 @@
-﻿using Model.game;
+﻿using Common;
+using Model.game;
 using Model.mode;
 using System;
 using System.Collections.Generic;
@@ -22,6 +23,8 @@ namespace UI
         public MainWindow() 
         {
             InitializeComponent();
+            CmboCards.IsEnabled = false;
+
         }
 
         /// <summary>
@@ -33,26 +36,38 @@ namespace UI
         {
             try
             {
+                int elementsPerCard = Int32.Parse(TxtElementsPerCard.Text.Trim());
+                ValidateOrder(elementsPerCard);
                 List<object> elements = MapElements();
+                ValidateElements(elements);
                 int totalCards = Int32.Parse(TxtTotalCards.Text.Trim());
                 int playersNumber = Int32.Parse(TxtTotalPlayers.Text.Trim());
                 string gameName = TxtGameName.Text.Trim();
-                int elementsPerCard = Int32.Parse(TxtElementsPerCard.Text.Trim());
-                DobbleGameMode dobbleGameMode =  DobbleGameMode.STACKMODE;
 
-                DobbleGame = new DobbleGame(elements,elementsPerCard,totalCards,dobbleGameMode,playersNumber,gameName);
+                DobbleGameMode dobbleGameMode = DobbleGameMode.STACKMODE;
+
+                DobbleGame = new DobbleGame(elements, elementsPerCard, totalCards, dobbleGameMode, playersNumber, gameName);
 
                 TxtGameStatus.Text = DobbleGame.ToString();
                 MessageBox.Show("Juego Creado");
 
             }
+            catch (ElementException ex)
+            {
+                MessageBox.Show(ex.Message);
+
+            }
+            catch (IndexOutOfRangeException)
+            {
+                MessageBox.Show("No es un mazo válido para crear");
+            }
             catch (FormatException)
             {
-                MessageBox.Show("Alguno de los campos es inválido");
+                MessageBox.Show("Alguno de los campos es inválido o está en blanco");
             }
-            catch (Exception ex)
-            { 
-                MessageBox.Show(ex.Message);
+            catch (Exception)
+            {
+                MessageBox.Show("Ha ocurrido algún error");
             }
 
         }
@@ -71,6 +86,7 @@ namespace UI
                 for (int i = 0; i < elements.Length; i++)
                     mapElements.Add(elements[i]);
 
+                
                 return mapElements;
             }
             catch (Exception)
@@ -81,6 +97,30 @@ namespace UI
             return mapElements;
 
         }
+
+
+        private void ValidateElements(List<object> _elements)
+        {
+            List<object> elements = _elements;
+            bool validElements = Helper.DistinctElements(elements);
+            if (!validElements) {
+                throw new ElementException("elementos duplicados");
+            };
+            
+        }
+
+        private void ValidateOrder(int elementsPerCard)
+        {
+            bool validOrder = Helper.IsValidOrder(elementsPerCard-1);
+            if (!validOrder)
+            {
+                throw new ElementException("los elementos por cartas no son válidos, puesto que el orden es inválido. " +
+                    "\nEl orden  es un número primo mayor a 1." +
+                    "\n Recuerde orden = elementos por carta - 1");
+            };
+        }
+
+
 
         /// <summary>
         /// Create a register window to register a player

@@ -39,6 +39,7 @@
         <Button Foreground="AliceBlue" Background="MediumPurple"  Click="Play" Content="Jugar" HorizontalAlignment="Left" Margin="230,504,0,0" VerticalAlignment="Top" Width="120" Height="30"/>
         <Button Foreground="AliceBlue" Background="MediumPurple" Click="Simulater" Content="Simular" HorizontalAlignment="Left" Margin="390,504,0,0" VerticalAlignment="Top" Width="120" Height="30"/>
         <TextBlock  Foreground="AliceBlue" x:Name="TxtGameStatus" HorizontalAlignment="Left" Margin="676,59,0,0" Text="No hay un juego creado" TextWrapping="Wrap" VerticalAlignment="Top" Height="530" Width="489"/>
+        <ComboBox x:Name ="CmboCards"  HorizontalAlignment="Left" Margin="415,209,0,0" VerticalAlignment="Top" Width="120"/>
 
     </Grid>
 </Window>

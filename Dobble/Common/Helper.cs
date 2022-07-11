@@ -1,6 +1,8 @@
 ﻿
+using Common;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 // * @author Cristopher Angulo
 // * @implNote Helper to use in all application to do generic operations
@@ -20,7 +22,7 @@ public class Helper
     //     * @implNote static method to generate random elements with a database in memory defined in list of objects
     //     * @param total number of elements
     //     * @return element list generated randomly
-    public static List<Object> generateRandomElements(int total)
+    public static List<Object> GenerateRandomElements(int total)
     {
         var elements = new List<Object>();
         var baseElements = new List<Object>();
@@ -71,7 +73,7 @@ public class Helper
     //     * @param elementsPerCard number of distinct elements that we identify for each card
     //     * @param totalCardsAuxiliary  number of cards auxiliary
     //     * @return return true if is valid total cards or  false if is the opposite
-    public static bool isValidTotalCards(int totalCards, int elementsPerCard, int totalCardsAuxiliary)
+    public static bool IsValidTotalCards(int totalCards, int elementsPerCard, int totalCardsAuxiliary)
     {
         return (totalCardsAuxiliary >= totalCards && totalCards > 0) ? true : false;
     }
@@ -82,7 +84,7 @@ public class Helper
     //     * the result It must be prime integer to return true
     //     * @param order number of order
     //     * @return valid if order of deck is valid
-    public static bool isValidOrder(int order)
+    public static bool IsValidOrder(int order)
     {
         if (order <= 1)
         {
@@ -97,4 +99,14 @@ public class Helper
         }
         return true;
     }
+
+    public static bool DistinctElements(List<object> elements)
+    {
+
+        bool isDuplicate = elements.Distinct().Count() == elements.Count();
+
+        return isDuplicate;
+
+    }
+
 }
