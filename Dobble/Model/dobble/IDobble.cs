@@ -13,6 +13,22 @@ namespace Model.dobble
 	public interface IDobble
 	{
 
+		bool IsDobble();
+
+		string GetMissingCards();
+
+		Card GetNthCard(List<Card> cards, int position);
+
+		Card GetNthCard(int position);
+
+		int GetRequiredElements(Card card);
+
+		int GetTotalCards(Card card);
+
+		int GetMaxNumberOfCards(int order);
+
+		void RemoveCard(Card card);
+
 		void AddCards(List<Card> cards); 
 
 		void AddCard(Card card);

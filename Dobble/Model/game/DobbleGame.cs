@@ -123,6 +123,7 @@ namespace Model.game
 			this.PlayersNumber = PlayersNumber;
 			Dobble = new Dobble(elements, elementsPerCard, maximumTotalCards);
 			this.DobbleGameMode = DobbleGameMode;
+			this.Status = DobbleGameStatus.CREATED;
 			this.Name = Name;
 			this.Players = new List<Player>();
 			this.CardsZone = new List<Card>();

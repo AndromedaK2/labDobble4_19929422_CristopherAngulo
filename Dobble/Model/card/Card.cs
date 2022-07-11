@@ -1,16 +1,4 @@
-﻿
-///////////////////////////////////////////////////////////
-//  Card.cs
-//  Implementation of the Class Cardct
-//  Created on:      27-jun.-2022 13:32:39
-//  Original author: Cristopher Angulo
-///////////////////////////////////////////////////////////
-
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks; 
+﻿using System.Collections.Generic;
 
 namespace Model.card
 {
@@ -48,7 +36,11 @@ namespace Model.card
 
 		}
 
-
+		/// <summary>
+		/// Validate if 2 cards are equals or no
+		/// </summary>
+		/// <param name="obj"></param>
+		/// <returns></returns>
 		public override bool Equals(object obj)
 		{
 			return obj is Card card &&

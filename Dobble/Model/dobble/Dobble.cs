@@ -116,7 +116,7 @@ namespace Model.dobble
 			{
 				Card card = MissingCards[i];
 				string cardString = card.ToString();
-				missingCardsString = missingCardsString + cardString;
+				missingCardsString += cardString;
 			}
 			return "" + missingCardsString;
 		}
@@ -166,7 +166,7 @@ namespace Model.dobble
 		/// @implNote  get maximum number of cards that we can create accord the order </summary>
 		/// <param name="order"> represent order (projective plane) </param>
 		/// <returns> maximum number of cards </returns>
-		public virtual int GetMaxNumberOfCards(int order)
+		public  int GetMaxNumberOfCards(int order)
 		{
 			return (order * order) + order + 1;
 		}
