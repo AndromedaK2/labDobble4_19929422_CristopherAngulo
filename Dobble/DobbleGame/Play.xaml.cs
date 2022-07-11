@@ -20,10 +20,23 @@ namespace UI
     /// </summary>
     public partial class Play : Window
     {
+
+        /// <summary>
+        /// Represent a game
+        /// </summary>
         public DobbleGame DobbleGame { get; set; }
 
-        public TextBlock GameStatusText { get; set; }  
+        /// <summary>
+        /// Represent status of game 
+        /// </summary>
+        public TextBlock GameStatusText { get; set; }
 
+
+        /// <summary>
+        /// Main Constructor
+        /// </summary>
+        /// <param name="dobbleGame"></param>
+        /// <param name="gameStatusText"></param>
         public Play(DobbleGame dobbleGame, TextBlock gameStatusText)
         {
             InitializeComponent();
@@ -34,6 +47,12 @@ namespace UI
             TxtCurrentTurn.Text = DobbleGame.WhoseIsTurn().ToString();
             CardsZoneToString();
         }
+
+        /// <summary>
+        /// Get symbol or elemento from user interface and validate if spotit
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
 
         private void Spotit(object sender, RoutedEventArgs e)
         {
@@ -69,6 +88,11 @@ namespace UI
             }
         }
 
+        /// <summary>
+        /// Pass next turn
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void PassTurn(object sender, RoutedEventArgs e)
         {
             try
@@ -90,6 +114,11 @@ namespace UI
             }
         }
 
+        /// <summary>
+        /// Finish or end game
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void FinishGame(object sender, RoutedEventArgs e)
         {
             try
@@ -114,6 +143,9 @@ namespace UI
             }
         }
 
+        /// <summary>
+        /// Cards in the zone game to string
+        /// </summary>
         private void CardsZoneToString()  
         {
             var cardsZone = DobbleGame.CardsZone;

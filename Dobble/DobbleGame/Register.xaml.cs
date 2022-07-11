@@ -21,16 +21,33 @@ namespace UI
     /// </summary>
     public partial class Register : Window
     {
+        /// <summary>
+        /// Represent a game
+        /// </summary>
         readonly DobbleGame DobbleGame = null;
-        public TextBlock TextBlock { get; set; }
-        public Register(DobbleGame dobbleGame, TextBlock textBlock)
+        /// <summary>
+        /// Represent status of game 
+        /// </summary>
+        public TextBlock GameStatusText { get; set; }
+
+        /// <summary>
+        /// Main Constructor
+        /// </summary>
+        /// <param name="dobbleGame"></param>
+        /// <param name="GameStatusText"></param>
+        public Register(DobbleGame dobbleGame, TextBlock GameStatusText)
         {
             InitializeComponent();
             this.DobbleGame = dobbleGame;
-            this.TextBlock = textBlock;
+            this.GameStatusText = GameStatusText;
 
         }
 
+        /// <summary>
+        /// Register a player in the game
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void RegisterPlayer(object sender, RoutedEventArgs e)
         {
             try
@@ -38,7 +55,7 @@ namespace UI
                 string username = TxtPlayerName.Text;
              
                 MessageBox.Show(this.DobbleGame.Register(username));
-                TextBlock.Text = this.DobbleGame.ToString();
+                GameStatusText.Text = this.DobbleGame.ToString();
             }
             catch (Exception)
             {

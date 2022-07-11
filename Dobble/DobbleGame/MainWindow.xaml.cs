@@ -11,13 +11,24 @@ namespace UI
     /// </summary>
     public partial class MainWindow : Window
     {
+        /// <summary>
+        /// Represent a game
+        /// </summary>
         public DobbleGame DobbleGame { get; set; }
 
+        /// <summary>
+        /// Main Constructor
+        /// </summary>
         public MainWindow() 
         {
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Gte value of user interface to create a game 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void CreateGame(object sender, RoutedEventArgs e)
         {
             try
@@ -46,6 +57,10 @@ namespace UI
 
         }
 
+        /// <summary>
+        /// Map each element in a list of object
+        /// </summary>
+        /// <returns></returns>
         private List<object> MapElements()
         {
             List<object> mapElements = new();
@@ -67,6 +82,11 @@ namespace UI
 
         }
 
+        /// <summary>
+        /// Create a register window to register a player
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void RegisterPlayer(object sender, RoutedEventArgs e)
         {
             try
@@ -87,6 +107,11 @@ namespace UI
             }
         }
 
+        /// <summary>
+        /// Create play window
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Play(object sender, RoutedEventArgs e)
         {
             try
@@ -115,6 +140,11 @@ namespace UI
             }
         }
 
+        /// <summary>
+        /// Create a simulater window
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Simulater(object sender, RoutedEventArgs e)
         {
             try

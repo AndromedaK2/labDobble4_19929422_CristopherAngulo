@@ -21,12 +21,26 @@ namespace UI
     /// </summary>
     public partial class Simulator : Window
     {
+        /// <summary>
+        /// Represent a game
+        /// </summary>
         public DobbleGame DobbleGame { get; set; }
 
+        /// <summary>
+        /// Represent status of game 
+        /// </summary>
         public TextBlock GameStatusText { get; set; }
 
+        /// <summary> if the is finished
+        /// Represent 
+        /// </summary>
         private bool FinishCurrentGame { get; set; } = false;
          
+        /// <summary>
+        /// Main Constructor
+        /// </summary>
+        /// <param name="dobbleGame"></param>
+        /// <param name="gameStatusText"></param>
         public Simulator(DobbleGame dobbleGame, TextBlock gameStatusText)
         {
             InitializeComponent();
@@ -38,11 +52,20 @@ namespace UI
             CardsZoneToString();
         }
 
+        /// <summary>
+        /// Start a Game
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
 
         private void StartGame(object sender, RoutedEventArgs e)
         {
             SimulatorCpuVSCpu();
         }
+
+        /// <summary>
+        /// Simulator Cpu vs Cpu
+        /// </summary>
         private void SimulatorCpuVSCpu()
         {
             try
@@ -72,6 +95,9 @@ namespace UI
             }
         }
 
+        /// <summary>
+        /// Method to spotit
+        /// </summary>
         private void Spotit()
         {
             try
@@ -117,6 +143,9 @@ namespace UI
 
         }
 
+        /// <summary>
+        /// Skip or pass a turn
+        /// </summary>
         private void PassTurn() 
         {
             try
@@ -142,6 +171,9 @@ namespace UI
 
         }
 
+        /// <summary>
+        /// Main FinishGame method
+        /// </summary>
         private void FinishGame()
         {
             try
@@ -167,6 +199,10 @@ namespace UI
 
         }
 
+        /// <summary>
+        /// CardsZoneToString
+        /// </summary>
+
         private void CardsZoneToString()
         {
             var cardsZone = DobbleGame.CardsZone;
@@ -175,6 +211,11 @@ namespace UI
 
         }
 
+        /// <summary>
+        /// Finish Game
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void CloseGame(object sender, RoutedEventArgs e)
         {
             FinishGame();
