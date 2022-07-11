@@ -104,15 +104,14 @@ namespace UI
 
                 else
                 {
-                    Play play = new Play(DobbleGame);
+                    Play play = new(DobbleGame, TxtGameStatus);
                     play.Show();
                 }
 
             }
             catch (Exception)
             {
-
-                throw;
+                MessageBox.Show("Hubo un error intente nuevamente");
             }
         }
 
@@ -120,19 +119,28 @@ namespace UI
         {
             try
             {
-                if (DobbleGame is null && DobbleGame.Players.Count > 0)
-                {
-                    MessageBox.Show("Debe crear un juego");
-                }
-                else
+                if (DobbleGame is null)
                 {
 
+                    MessageBox.Show("Debe crear un juego");
+                }
+                else if (DobbleGame.Players.Count <= 0)
+                {
+
+                    MessageBox.Show("Debe registrar jugadores");
+
+                }
+
+                else
+                {
+                    Play play = new(DobbleGame, TxtGameStatus);
+                    play.Show();
                 }
             }
             catch (Exception)
             {
+                MessageBox.Show("Hubo un error intente nuevamente");
 
-                throw;
             }
         }
     }

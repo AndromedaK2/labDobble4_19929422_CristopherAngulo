@@ -22,12 +22,15 @@ namespace UI
     {
         public DobbleGame DobbleGame { get; set; }
 
-        public Play(DobbleGame dobbleGame)
+        public TextBlock GameStatusText { get; set; }  
+
+        public Play(DobbleGame dobbleGame, TextBlock gameStatusText)
         {
             InitializeComponent();
+            GameStatusText = gameStatusText;
             DobbleGame = dobbleGame;
-            TxtGameStatus.Text = DobbleGame.ToString();
             DobbleGame.StartGame();
+            TxtGameStatus.Text = DobbleGame.ToString();
             TxtCurrentTurn.Text = DobbleGame.WhoseIsTurn().ToString();
             CardsZoneToString();
         }
@@ -38,11 +41,11 @@ namespace UI
             {
                 string element = TxtSpotit.Text;
                 if (DobbleGame.Spotit(element)) {
-                    MessageBox.Show("Acertaste");
+                    MessageBox.Show("Acertaste "+ element + " es el símbolo en común");
                 }
                 else
                 {
-                    MessageBox.Show("Ups!! Ese no es el símbolo en cómun");
+                    MessageBox.Show("Ups!! "+ element + " no es el símbolo en común");
                 }
                 DobbleGame.StartGame();
                 CardsZoneToString();
@@ -71,8 +74,8 @@ namespace UI
             try
             {
                 DobbleGame.PassTurn();
-                TxtCurrentTurn.Text = DobbleGame.WhoseIsTurn().ToString();
                 DobbleGame.StartGame();
+                TxtCurrentTurn.Text = DobbleGame.WhoseIsTurn().ToString();
                 CardsZoneToString();
             }
             catch (Exception)
@@ -93,6 +96,9 @@ namespace UI
             {
                 DobbleGame.EndGame();
                 MessageBox.Show(DobbleGame.Winner());
+                this.TxtGameStatus.Text = DobbleGame.ToString();
+                this.GameStatusText.Text = DobbleGame.ToString();
+
                 this.Close();
                 
             }

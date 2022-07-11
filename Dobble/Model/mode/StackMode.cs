@@ -95,10 +95,10 @@ namespace Model.mode
 
 		public void EndGame(DobbleGame dobbleGame)
 		{
-			dobbleGame.Players.ForEach(player =>
-			{
-				player.RemoveCards();
-			});
+			//dobbleGame.Players.ForEach(player =>
+			//{
+			//	player.RemoveCards();
+			//});
 		}
 
 		/// <summary>

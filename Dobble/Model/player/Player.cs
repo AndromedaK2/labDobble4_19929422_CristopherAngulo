@@ -64,7 +64,7 @@ namespace Model.player
 		/// @implNote this method receive a card list to added his card list attribute </summary>
 		/// <param name="cards"> list of cards </param>
 		/// <seealso cref="Card"/>
-		public  void AddCards(IList<Card> cards)
+		public  void AddCards(List<Card> cards)
 		{
             Cards.AddRange(cards);
 			Points = Cards.Count;
@@ -81,16 +81,20 @@ namespace Model.player
 		/// <returns> player in a string format </returns>
 		public override string ToString()
 		{
-			string cardsString = " Cartas: "; 
+			string cardsString = ""; 
 			if (Cards.Count > 0)
 			{
-				Cards.ForEach(action: c => cardsString = string.Join(cardsString, c.ToString()));
+                for (int i = 0; i < Cards.Count; i++)
+                {
+					cardsString +=  Cards[i];
+
+				}
             }
             else
             {
 				cardsString += "No tiene cartas";
             }
-			return "\n Jugador: \n" + " Nombre de usuario: " + Username.ToString() + "\n" + cardsString + "\n" + " Puntos: " + Cards.Count.ToString() +"\n";
+			return "\n\n Jugador: \n" + " Nombre de usuario: " + Username.ToString() + "\n" + "Cartas: \n "+cardsString + "\n" + " Puntos: " + Cards.Count.ToString();
 		}
 
 

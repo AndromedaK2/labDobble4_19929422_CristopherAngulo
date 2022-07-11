@@ -6,13 +6,18 @@
         xmlns:local="clr-namespace:UI"
         mc:Ignorable="d"
         Background="DarkSlateBlue"
+        WindowStyle="SingleBorderWindow"
+        WindowState="Maximized"
         Title="Dobble Game" Height="650" Width="1300">
     <Grid>
-        <Label Foreground="White" Content="Nombre del Juego:" HorizontalAlignment="Left" Margin="119,34,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.426,0.618"/>
-        <TextBox x:Name="TxtGameName"  HorizontalAlignment="Left" Margin="270,44,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" RenderTransformOrigin="1.042,0.169" />
+        <Border Background="MediumSlateBlue" BorderThickness="1" BorderBrush="White" HorizontalAlignment="Left" Height="210" Margin="40,389,0,0" VerticalAlignment="Top" Width="530"/>
+
+        <Border Background="MediumSlateBlue" BorderThickness="1" BorderBrush="White" HorizontalAlignment="Left" Height="355" Margin="40,19,0,0" VerticalAlignment="Top" Width="530"/>
+        <Label Foreground="White" Content="Nombre del Juego:" HorizontalAlignment="Left" Margin="119,43,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.426,0.618"/>
+        <TextBox x:Name="TxtGameName"  HorizontalAlignment="Left" Margin="270,49,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" RenderTransformOrigin="1.042,0.169" />
 
         <Label Foreground="White" Content="Elementos por carta:" HorizontalAlignment="Left" Margin="117,93,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.426,0.618"/>
-        <TextBox x:Name="TxtElementsPerCard" HorizontalAlignment="Left" Margin="270,94,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" RenderTransformOrigin="1.042,0.169"/>
+        <TextBox x:Name="TxtElementsPerCard" HorizontalAlignment="Left" Margin="270,101,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" RenderTransformOrigin="1.042,0.169"/>
 
         <Label Foreground="White" Content="Ingrese Símbolos:" HorizontalAlignment="Left" Margin="117,148,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.426,0.618"/>
         <TextBox x:Name="TxtElements" HorizontalAlignment="Left" Margin="270,156,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" RenderTransformOrigin="1.042,0.169"/>
@@ -21,16 +26,16 @@
         <TextBox x:Name="TxtTotalCards" HorizontalAlignment="Left" Margin="270,209,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" RenderTransformOrigin="1.042,0.169"/>
 
         <Label Foreground="White" Content="Número de Jugadores:" HorizontalAlignment="Left" Margin="115,254,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="TxtTotalPlayers" HorizontalAlignment="Left" Margin="270,259,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" RenderTransformOrigin="1.042,0.169"/>
+        <TextBox x:Name="TxtTotalPlayers" HorizontalAlignment="Left" Margin="270,264,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" RenderTransformOrigin="1.042,0.169"/>
 
 
-        <Button  Background="MediumPurple"  Content="Crear Juego" Click="CreateGame" HorizontalAlignment="Left" Margin="120,329,0,0" VerticalAlignment="Top" Height="25" Width="92"/>
-        <TextBlock Background="MediumSlateBlue" Foreground="WhiteSmoke" x:Name="TxtGameStatus" Margin="595,29,32,30"><Run Language="es-cl" Text="    "/><LineBreak/><Run Language="es-cl"/><Run/><LineBreak/><Run/><LineBreak/><Run/><LineBreak/><Run/><LineBreak/><Run/><LineBreak/><Run/><LineBreak/><Run/><LineBreak/><Run/><LineBreak/><Run/><LineBreak/><Run Language="es-cl" Text="                                                              "/><Run Text="No hay un juego creado"/></TextBlock>
+        <Button Foreground="AliceBlue" Background="MediumPurple"  Content="Crear Juego" Click="CreateGame" HorizontalAlignment="Left" Margin="120,329,0,0" VerticalAlignment="Top" Height="25" Width="92"/>
+        <TextBlock Background="MediumSlateBlue" Foreground="WhiteSmoke" x:Name="TxtGameStatus" Margin="590,19,37,40"><Run Language="es-cl" Text="    "/><LineBreak/><Run Language="es-cl"/><Run/><LineBreak/><Run/><LineBreak/><Run/><LineBreak/><Run/><LineBreak/><Run/><LineBreak/><Run/><LineBreak/><Run/><LineBreak/><Run/><LineBreak/><Run/><LineBreak/><Run Language="es-cl" Text="                                                              "/><Run Text="No hay un juego creado"/></TextBlock>
 
-        <Button Background="MediumPurple" Content="Registrar Jugador" Click="RegisterPlayer" HorizontalAlignment="Left" Margin="115,449,0,0" VerticalAlignment="Top" Height="30" Width="120"/>
-        <TextBlock Foreground="White"  HorizontalAlignment="Left" Margin="125,394,0,0" Text="Opciones: " TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.201,0.316"/>
-        <Button Background="MediumPurple"  Click="Play" Content="Jugar" HorizontalAlignment="Left" Margin="275,449,0,0" VerticalAlignment="Top" Width="120" Height="30"/>
-        <Button Background="MediumPurple" Click="Simulater" Content="Simular" HorizontalAlignment="Left" Margin="430,449,0,0" VerticalAlignment="Top" Width="120" Height="30"/>
+        <Button Foreground="AliceBlue" Background="MediumPurple" Content="Registrar Jugador" Click="RegisterPlayer" HorizontalAlignment="Left" Margin="85,504,0,0" VerticalAlignment="Top" Height="30" Width="120"/>
+        <TextBlock Foreground="White"  HorizontalAlignment="Left" Margin="94,463,0,0" Text="Opciones: " TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.201,0.316"/>
+        <Button Foreground="AliceBlue" Background="MediumPurple"  Click="Play" Content="Jugar" HorizontalAlignment="Left" Margin="230,504,0,0" VerticalAlignment="Top" Width="120" Height="30"/>
+        <Button Foreground="AliceBlue" Background="MediumPurple" Click="Simulater" Content="Simular" HorizontalAlignment="Left" Margin="390,504,0,0" VerticalAlignment="Top" Width="120" Height="30"/>
 
     </Grid>
 </Window>

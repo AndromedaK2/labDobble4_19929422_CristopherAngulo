@@ -7,14 +7,18 @@ C:\Users\Kurisu\Documents\GitHub\labDobble4_19929422_CristopherAngulo\Dobble\Dob
 C:\Users\Kurisu\Documents\GitHub\labDobble4_19929422_CristopherAngulo\Dobble\DobbleGame\bin\Debug\net5.0-windows\UI.pdb
 C:\Users\Kurisu\Documents\GitHub\labDobble4_19929422_CristopherAngulo\Dobble\DobbleGame\bin\Debug\net5.0-windows\Common.dll
 C:\Users\Kurisu\Documents\GitHub\labDobble4_19929422_CristopherAngulo\Dobble\DobbleGame\bin\Debug\net5.0-windows\Model.dll
-C:\Users\Kurisu\Documents\GitHub\labDobble4_19929422_CristopherAngulo\Dobble\DobbleGame\bin\Debug\net5.0-windows\Common.pdb
 C:\Users\Kurisu\Documents\GitHub\labDobble4_19929422_CristopherAngulo\Dobble\DobbleGame\bin\Debug\net5.0-windows\Model.pdb
+C:\Users\Kurisu\Documents\GitHub\labDobble4_19929422_CristopherAngulo\Dobble\DobbleGame\bin\Debug\net5.0-windows\Common.pdb
 C:\Users\Kurisu\Documents\GitHub\labDobble4_19929422_CristopherAngulo\Dobble\DobbleGame\obj\Debug\net5.0-windows\UI.csprojAssemblyReference.cache
+C:\Users\Kurisu\Documents\GitHub\labDobble4_19929422_CristopherAngulo\Dobble\DobbleGame\obj\Debug\net5.0-windows\Play.baml
 C:\Users\Kurisu\Documents\GitHub\labDobble4_19929422_CristopherAngulo\Dobble\DobbleGame\obj\Debug\net5.0-windows\MainWindow.g.cs
+C:\Users\Kurisu\Documents\GitHub\labDobble4_19929422_CristopherAngulo\Dobble\DobbleGame\obj\Debug\net5.0-windows\Play.g.cs
+C:\Users\Kurisu\Documents\GitHub\labDobble4_19929422_CristopherAngulo\Dobble\DobbleGame\obj\Debug\net5.0-windows\Register.g.cs
 C:\Users\Kurisu\Documents\GitHub\labDobble4_19929422_CristopherAngulo\Dobble\DobbleGame\obj\Debug\net5.0-windows\App.g.cs
 C:\Users\Kurisu\Documents\GitHub\labDobble4_19929422_CristopherAngulo\Dobble\DobbleGame\obj\Debug\net5.0-windows\UI_MarkupCompile.cache
 C:\Users\Kurisu\Documents\GitHub\labDobble4_19929422_CristopherAngulo\Dobble\DobbleGame\obj\Debug\net5.0-windows\UI_MarkupCompile.lref
 C:\Users\Kurisu\Documents\GitHub\labDobble4_19929422_CristopherAngulo\Dobble\DobbleGame\obj\Debug\net5.0-windows\MainWindow.baml
+C:\Users\Kurisu\Documents\GitHub\labDobble4_19929422_CristopherAngulo\Dobble\DobbleGame\obj\Debug\net5.0-windows\Register.baml
 C:\Users\Kurisu\Documents\GitHub\labDobble4_19929422_CristopherAngulo\Dobble\DobbleGame\obj\Debug\net5.0-windows\UI.g.resources
 C:\Users\Kurisu\Documents\GitHub\labDobble4_19929422_CristopherAngulo\Dobble\DobbleGame\obj\Debug\net5.0-windows\UI.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\Kurisu\Documents\GitHub\labDobble4_19929422_CristopherAngulo\Dobble\DobbleGame\obj\Debug\net5.0-windows\UI.AssemblyInfoInputs.cache
@@ -25,7 +29,3 @@ C:\Users\Kurisu\Documents\GitHub\labDobble4_19929422_CristopherAngulo\Dobble\Dob
 C:\Users\Kurisu\Documents\GitHub\labDobble4_19929422_CristopherAngulo\Dobble\DobbleGame\obj\Debug\net5.0-windows\ref\UI.dll
 C:\Users\Kurisu\Documents\GitHub\labDobble4_19929422_CristopherAngulo\Dobble\DobbleGame\obj\Debug\net5.0-windows\UI.pdb
 C:\Users\Kurisu\Documents\GitHub\labDobble4_19929422_CristopherAngulo\Dobble\DobbleGame\obj\Debug\net5.0-windows\UI.genruntimeconfig.cache
-C:\Users\Kurisu\Documents\GitHub\labDobble4_19929422_CristopherAngulo\Dobble\DobbleGame\obj\Debug\net5.0-windows\Register.g.cs
-C:\Users\Kurisu\Documents\GitHub\labDobble4_19929422_CristopherAngulo\Dobble\DobbleGame\obj\Debug\net5.0-windows\Register.baml
-C:\Users\Kurisu\Documents\GitHub\labDobble4_19929422_CristopherAngulo\Dobble\DobbleGame\obj\Debug\net5.0-windows\Play.g.cs
-C:\Users\Kurisu\Documents\GitHub\labDobble4_19929422_CristopherAngulo\Dobble\DobbleGame\obj\Debug\net5.0-windows\Play.baml

@@ -266,7 +266,7 @@ namespace Model.game
 			Player player = Mode.GetWinner(Players);
 			if (player.Points > 0)
 			{
-				return player.ToString();
+				return "Ganador: " + player.Username + "\n" + "Puntos: " + player.Points;
 			}
 			else
 			{
@@ -307,7 +307,7 @@ namespace Model.game
 			{
 				for (int i = 0; i < CardsZone.Count; i++)
 				{
-					playersString += CardsZone[i];
+					cardsString += CardsZone[i];
 				}
 			}
 			else
@@ -315,7 +315,7 @@ namespace Model.game
 				cardsString += "No hay cartas en juego";
 			}
 
-			return "Informacion del Juego Dobble:\n\n" + "- id: " + Id.ToString() + "\n\n" + "- Nombre: " + Name.ToString() + "\n\n" + "- Estado: " + GameStatus.ToString() + "\n\n" + "- Jugadores: " + playersString  + "\n\n" + "- Numero de jugadores: " + PlayersNumber.ToString() + "\n\n" + "- Zona de juego: " + cardsString + "\n\n" + "- " + Dobble.ToString() + "\n";
+			return "Informacion del Juego Dobble:\n\n" + "- Id: " + Id.ToString() + "\n" + "- Nombre Juego: " + Name.ToString() + "\n" + "- Estado: " + GameStatus.ToString() + "\n" + "- Jugadores: " + playersString  + "\n\n" + "- Numero de jugadores: " + PlayersNumber.ToString() + "\n" + "- Zona de juego:\n " + cardsString + "\n" + "- " + Dobble.ToString() + "\n";
 
 		}
 
